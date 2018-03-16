@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+
     <header id="xt-home" class="xt-header">
       <div class="header-top">
         <div class="container">
@@ -51,35 +52,18 @@
 
               <div class="collapse navbar-collapse" id="js-navbar-menu">
                 <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
-                  <li class="active"><a href="index.html">Home</a></li>
-                  <li><a href="shop-page.html">Shop</a></li>
-                  <li><a href="single-shop.html">Single Product</a></li>
+                  <li class="active"><a><router-link to="">Home</router-link></a></li>
+                  <li><a><router-link to="products">Shop</router-link></a></li>
                   <li><a href="">About</a></li>
                   <li class="dropdown xt-drop-nav">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                      Gallery <span class="caret"></span>
+                      Services <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Electronics</a></li>
-                      <li><a href="#">Furniture</a></li>
-                      <li class="dropdown">
-                        <a href="#">Mobile and Tablets</a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Nokia</a></li>
-                          <li><a href="#">iPhone</a></li>
-                          <li class="dropdown">
-                            <a href="#">Memory Card</a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#">Max</a></li>
-                              <li><a href="#">Min</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="#">Computer</a></li>
-                          <li><a href="#">Office furniture</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="#">Land and space</a></li>
-                      <li><a href="#">Bike and Cars</a></li>
+                      <li><a href="#">Find Professionals</a></li>
+                      <li><a href="#">Request Service</a></li>
+                      <li><a href="#">Get A Building Plan</a></li>
+                      <li><a href="#">Order Utility Services</a></li>
                     </ul>
                   </li>
                   <li><a href="">Blog</a></li>
@@ -328,6 +312,8 @@
     </div>
 
     <router-view/>
+
+    <!--scripts-->
 
   </div>
 </template>
