@@ -80,7 +80,7 @@
                           <span class="new-price xt-semibold">{{product.measuring_unit.unit_name}}</span>
                         </div>
                         <div class="add-cart">
-                          <a href="" class="btn btn-fill">Add to cart</a>
+                          <button class="btn btn-fill" @click="addToCart(product)">Add to cart</button>
                           <ul class="reaction">
                             <li><a href=""><i class="fa fa-search"></i></a></li>
                             <li><a href=""><i class="fa fa-heart-o"></i></a></li>
@@ -155,8 +155,9 @@
 
 </template>
 <script>
-  import axios from 'axios'
- import mapGetters from 'vuex'
+
+import axios from 'axios'
+ import {mapGetters, mapActions }from 'vuex'
   export default {
     name: 'ProductList',
 
@@ -164,10 +165,20 @@
       products(){
        return this.$store.getters.getProducts;
       }
+
     },
 
+    methods: mapActions(
+      [
+        'addToCart'
+      ]
+
+    ),
+
     created(){
-      this.$store.dispatch('fetchProducts')
+      this.$store.dispatch('fetchProducts');
+
+
     }
   }
 </script>

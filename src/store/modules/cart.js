@@ -1,19 +1,22 @@
+
 const state = {
-  cartItems: [],
+  cartItems: JSON.parse(window.localStorage.getItem('shopping_cart') || '[]'),
   checkoutStatus: null,
 };
+
+
+
 
 //getters
 const getters = {
   getCartItems: (state, getters, rootState) => {
     return state.cartItems.map(({id, quantity}) => {
-
-      const product = rootState.products.productList.find(product => product.id === id)
+      const item = rootState.products.productList.find(product => product.id === id)
       {
         return {
-          name: product.product_name,
-          price: product.cost_per_unit,
-          img_url: product.img1,
+          name: item.product_name,
+          price: item.cost_per_unit,
+          img_url: item.img1,
           quantity
         }
       }
@@ -71,10 +74,11 @@ const mutations = {
 
 };
 
-
 export default {
   state,
   getters,
   actions,
   mutations
 }
+
+
