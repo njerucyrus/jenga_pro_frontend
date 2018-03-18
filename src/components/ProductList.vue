@@ -156,15 +156,17 @@
 </template>
 <script>
 
-import axios from 'axios'
  import {mapGetters, mapActions }from 'vuex'
   export default {
     name: 'ProductList',
 
     computed: {
-      products(){
-       return this.$store.getters.getProducts;
-      }
+      ...mapGetters(
+        {
+          products: 'getProducts',
+
+        }
+      )
 
     },
 

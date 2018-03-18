@@ -1,28 +1,34 @@
 
+
+
 const state = {
-  cartItems: JSON.parse(window.localStorage.getItem('shopping_cart') || '[]'),
+  cartItems: [],
   checkoutStatus: null,
+  cartProds: []
 };
-
-
 
 
 //getters
 const getters = {
   getCartItems: (state, getters, rootState) => {
+
     return state.cartItems.map(({id, quantity}) => {
-      const item = rootState.products.productList.find(product => product.id === id)
-      {
+      const product = rootState.products.productList.find(product => product.id === id)
         return {
-          name: item.product_name,
-          price: item.cost_per_unit,
-          img_url: item.img1,
+          name: product.product_name,
+          price: product.cost_per_unit,
+          img_url: product.img1,
           quantity
         }
-      }
 
     })
   },
+
+  totalItems(state){
+    return state.cartItems.length
+  },
+
+
 
   getCartTotalPrice: (state, getters) => {
     return getters.getCartItems.reduce((total, product) => {
@@ -51,7 +57,7 @@ const actions = {
 const mutations = {
   pushProductToCart(state, {id}) {
     state.cartItems.push({
-      id,
+        id,
       quantity: 1
     })
   },

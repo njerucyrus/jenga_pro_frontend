@@ -9,7 +9,8 @@
               <div class="each-nav">
                 <ul>
                   <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">English <span class="fa fa-angle-down"></span> </a>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">English <span class="fa fa-angle-down"></span> </a>
                     <ul class="dropdown-menu xt-lang-dropdown">
                       <li><a href="">France</a></li>
                       <li><a href="causes-list.html">Bangla</a></li>
@@ -17,7 +18,8 @@
                     </ul>
                   </li>
                   <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USD <span class="fa fa-angle-down"></span> </a>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">USD <span class="fa fa-angle-down"></span> </a>
                     <ul class="dropdown-menu xt-lang-dropdown">
                       <li><a href="">USD</a></li>
                       <li><a href="causes-list.html">EURO</a></li>
@@ -47,13 +49,18 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                   <span aria-hidden="true" class="icon"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="static/images/flogo.png" alt="" class="img-responsive"></a>
+                <a class="navbar-brand" href="index.html"><img src="static/images/flogo.png" alt=""
+                                                               class="img-responsive"></a>
               </div>
 
               <div class="collapse navbar-collapse" id="js-navbar-menu">
                 <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
-                  <li class="active"><a><router-link to="/">Home</router-link></a></li>
-                  <li><a><router-link to="/products">Shop</router-link></a></li>
+                  <li class="active"><a>
+                    <router-link to="/">Home</router-link>
+                  </a></li>
+                  <li><a>
+                    <router-link to="/products">Shop</router-link>
+                  </a></li>
                   <li><a href="">About</a></li>
                   <li class="dropdown xt-drop-nav">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
@@ -197,7 +204,7 @@
 
             <div class="col-md-8 col-sm-10 col-xs-12 xt-header-search">
               <div class="form-group xt-form search-bar  col-md-8 col-sm-8 col-xs-7 padding-right-o">
-                <input type="text" class="form-control" placeholder="Search for snippets" />
+                <input type="text" class="form-control" placeholder="Search for snippets"/>
               </div>
               <div class="form-group xt-form xt-search-cat col-md-4 col-sm-4 col-xs-5 padding-left-o ">
                 <div class="xt-select xt-search-opt">
@@ -268,9 +275,8 @@
       </div>
     </div>
 
-    <router-view>
-      <slider></slider>
-    </router-view>
+    <router-view/>
+
 
     <!--scripts-->
 
@@ -278,24 +284,25 @@
 </template>
 
 <script>
-import ShoppingCart from "./components/ShoppingCart.vue";
-import Slider from "./components/Slider.vue";
+  import ShoppingCart from "./components/ShoppingCart.vue";
+  import Slider from "./components/Slider.vue";
 
-export default {
-  components: {
-    Slider,
-    ShoppingCart},
-  name: 'App'
-}
+  export default {
+    components: {
+      Slider,
+      ShoppingCart
+    },
+    name: 'App'
+  }
 </script>
 
 <style>
-/*#app {*/
+  /*#app {*/
   /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
   /*-webkit-font-smoothing: antialiased;*/
   /*-moz-osx-font-smoothing: grayscale;*/
   /*text-align: center;*/
   /*color: #2c3e50;*/
   /*margin-top: 60px;*/
-/*}*/
+  /*}*/
 </style>
