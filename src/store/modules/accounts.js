@@ -12,8 +12,11 @@ const state = {
   next_url: '',
   prev_url: '',
   /*end of pagination attr*/
+  loading: false,
+  error: null,
+  success_msg: null,
 
-}
+};
 
 const getters = {
   getUsers(state) {
@@ -39,7 +42,17 @@ const getters = {
   },
   /*pagination getters END*/
 
+  getError(state) {
+    return state.error
+  },
 
+  getLoading(state) {
+    return state.loading
+  },
+
+  getSuccessMsg(state){
+    return state.success_msg
+  },
 
 };
 
@@ -49,7 +62,7 @@ const actions = {
     api.get(`/profiles`)
       .then(response => {
         commit('setUsers', response.data)
-        console.log("user data",response.data)
+        console.log("user data", response.data)
       })
       .catch(error => {
         console.log(error)
@@ -93,6 +106,33 @@ const actions = {
   },
   //end pagination action
 
+  createAccount({commit}, payload) {
+    commit('setLoading', true);
+    commit('clearError');
+    api.post(`/users/`, payload)
+      .then(response => {
+        if (response.status === 201) {
+          commit('setLoading', false)
+          let message = "Account created Successfully";
+          commit('setSuccessMsg', message)
+        } else {
+
+          let message = "An error occurred while creating your account please try again later"
+          commit('setError', message);
+          commit('setLoading', false);
+          console.log("ACC_ERR0", response)
+        }
+      })
+      .catch(error => {
+        let message = "An error occurred while creating your account please try again later"
+        commit('setError', message);
+        commit('setLoading', false);
+        console.log("ACC_ERR1", error)
+      })
+
+  }
+
+
 };
 
 const mutations = {
@@ -121,7 +161,23 @@ const mutations = {
     state.num_pages = payload.pages;
     state.current_page = payload.current_page;
 
+  },
+  setLoading(state, payload){
+    state.loading = payload
+  },
+
+  setSuccessMgs(state, payload){
+    state.success_msg = payload;
+  },
+
+  setError(state, payload){
+    state.error = payload
+  },
+
+  clearError(state){
+    state.error = null
   }
+
 };
 
 export default {

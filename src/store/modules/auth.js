@@ -54,7 +54,8 @@ const actions = {
   logout({commit}){
     commit('setAuthToken', null)
   }
-}
+
+};
 
 
 const mutations = {
