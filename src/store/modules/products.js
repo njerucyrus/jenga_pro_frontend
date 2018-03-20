@@ -11,8 +11,6 @@ const state = {
   num_pages: 0,
   next_url: '',
   prev_url: '',
-
-
 };
 
 //getters

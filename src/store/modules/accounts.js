@@ -12,7 +12,6 @@ const state = {
   next_url: '',
   prev_url: '',
   /*end of pagination attr*/
-  auth_token: '',
 
 }
 
@@ -40,11 +39,6 @@ const getters = {
   },
   /*pagination getters END*/
 
-
-
-  getToken(state) {
-    return state.auth_token
-  },
 
 
 };
@@ -99,20 +93,6 @@ const actions = {
   },
   //end pagination action
 
-  login({commit}, credentials) {
-    api.post(`/obtain-token/`, {
-      username: credentials.username,
-      password: credentials.password
-    })
-      .then(response => {
-        if (response.status === 200){
-          commit("setUserToken", response.data.token)
-        }
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
 };
 
 const mutations = {
@@ -143,3 +123,10 @@ const mutations = {
 
   }
 };
+
+export default {
+  state,
+  getters,
+  actions,
+  mutations,
+}
