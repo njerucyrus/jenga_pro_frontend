@@ -2,7 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import cart from './modules/cart'
 import products from './modules/products';
-import createPersistedState from 'vuex-persistedstate'
+import createPersistedState from 'vuex-persistedstate';
+
 Vue.use(Vuex);
 const debug = true;
 
@@ -11,7 +12,6 @@ const debug = true;
 //     window.localStorage.setItem('shopping_cart', JSON.stringify(cart.cartItems))
 //   })
 // }
-
 // const plugins = [localStoragePlugin];
 const plugins = [createPersistedState()];
 
@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
    cart,
    products
  },
-  // strict: debug,
+  strict: debug,
   plugins
 
 });

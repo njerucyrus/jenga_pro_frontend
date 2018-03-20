@@ -28,6 +28,12 @@ const getters = {
     return state.cartItems.length
   },
 
+  getCartItemQuantityCount: (state, getters) =>{
+    return getters.getCartItems.reduce((total, product) => {
+      return total +  product.quantity
+    }, 0)
+  },
+
 
 
   getCartTotalPrice: (state, getters) => {

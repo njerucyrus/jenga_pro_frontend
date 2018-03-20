@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import ProductList from '@/components/ProductList'
+import SingleProduct from '@/components/SingleProduct'
 import ShoppingCart from '@/components/ShoppingCart'
 
 
@@ -20,6 +21,13 @@ export default new Router({
       name: 'Products',
       component: ProductList
     },
+
+    {
+      path: '/products/:id',
+      name: 'SingleProduct',
+      component: SingleProduct
+    },
+
     {
       path: '/cart',
       name: 'ShoppingCart',

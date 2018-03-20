@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-
     <header id="xt-home" class="xt-header">
       <div class="header-top">
         <div class="container">
@@ -54,13 +53,18 @@
               </div>
 
               <div class="collapse navbar-collapse" id="js-navbar-menu">
+                <div class="col-md-6 col-md-offset-3">
+                <flash-message></flash-message>
+                </div>
                 <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
-                  <li class="active"><a>
-                    <router-link to="/">Home</router-link>
+                  <li class="active"><a href="">
+                    <router-link to="/" v-on:click.prevent>Home</router-link>
                   </a></li>
-                  <li><a>
+                  <li v-on:click="reloadPage()">
+                    <a href="#">
                     <router-link to="/products">Shop</router-link>
-                  </a></li>
+                    </a>
+                  </li>
                   <li><a href="">About</a></li>
                   <li class="dropdown xt-drop-nav">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
@@ -88,116 +92,7 @@
             <div class="col-md-3 left-menu-wrapper">
               <div class="xt-sidenav hidden-xs hidden-sm">
                 <nav>
-                  <ul class="xt-side-menu">
-                    <li>
-                      <a href="#">All Category</a>
-                      <ul class="xt-dropdown">
-                        <li>
-                          <a class="xt-nav-link" href="single-shop.html"><i class="fa flaticon-glasses"></i> FASHION</a>
-                          <ul class="mega-menu">
-                            <li>
-                              <ul class="xt-single-mega">
-                                <li><a href="single-shop.html">Bags</a></li>
-                                <li><a href="single-shop.html">Funky</a></li>
-                                <li><a href="single-shop.html">Ear Wear</a></li>
-                                <li><a href="single-shop.html">Shoes</a></li>
-                                <li><a href="single-shop.html">Cosmetic</a></li>
-                              </ul>
-                            </li>
-                            <li>
-                              <ul class="xt-single-mega">
-                                <li><a href="single-shop.html">Shirt</a></li>
-                                <li><a href="single-shop.html">Pant</a></li>
-                                <li><a href="single-shop.html">Trousers</a></li>
-                                <li><a href="single-shop.html">Jackets & sweater</a></li>
-                                <li><a href="single-shop.html">T-Shirts</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a class="xt-nav-link" href="single-shop.html"><i class="fa flaticon-dress"></i> WOMEN'S</a>
-                          <ul class="mega-menu">
-                            <li>
-                              <ul class="xt-single-mega">
-                                <li><a href="single-shop.html">Accessories</a></li>
-                                <li><a href="single-shop.html">Ornaments</a></li>
-                                <li><a href="single-shop.html">Shoes</a></li>
-                                <li><a href="single-shop.html">3 Piece</a></li>
-                                <li><a href="single-shop.html">Cosmetic</a></li>
-                              </ul>
-                            </li>
-                            <li>
-                              <ul class="xt-single-mega">
-                                <li><a href="single-shop.html">Ring</a></li>
-                                <li><a href="single-shop.html">Bags</a></li>
-                                <li><a href="single-shop.html">Ear Wear</a></li>
-                                <li><a href="single-shop.html">Storage</a></li>
-                                <li><a href="single-shop.html">Office</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li><a href="single-shop.html"><i class="fa flaticon-high-heel"></i> SHOES</a></li>
-                        <li>
-                          <a class="xt-nav-link" href="single-shop.html"><i class="fa flaticon-v-neck-shirt"></i> MAN'S</a>
-                          <ul class="mega-menu xt-column">
-                            <li>
-                              <ul class="xt-single-mega">
-                                <li><a href="single-shop.html">Jeans Pant</a></li>
-                                <li><a href="single-shop.html">T-Shirts</a></li>
-                                <li><a href="single-shop.html">Pant</a></li>
-                                <li><a href="single-shop.html">Jackets</a></li>
-                                <li><a href="single-shop.html">Cap</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li><a href="single-shop.html"><i class="fa flaticon-jacket"></i> JACKETS</a></li>
-                        <li>
-                          <a class="xt-nav-link" href="single-shop.html"><i class="fa flaticon-cosmetics"></i> COSMETICS</a>
-                          <ul class="mega-menu xt-column">
-                            <li>
-                              <ul class="xt-single-mega">
-                                <li><a href="single-shop.html">Lipstick</a></li>
-                                <li><a href="single-shop.html">Makeup Brush</a></li>
-                                <li><a href="single-shop.html">Nail Polish</a></li>
-                                <li><a href="single-shop.html"> Hair Dryers</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a class="xt-nav-link" href="single-shop.html"><i class="fa flaticon-hijab"></i>BOURKHA & HIJAB</a>
-                          <ul class="mega-menu xt-column">
-                            <li>
-                              <ul class="xt-single-mega">
-                                <li><a href="single-shop.html">Iranian</a></li>
-                                <li><a href="single-shop.html">Arabian</a></li>
-                                <li><a href="single-shop.html">Indian</a></li>
-                                <li><a href="single-shop.html">Indonesian</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a class="xt-nav-link" href="single-shop.html"><i class="fa flaticon-jacket-1"></i>Coats & Gilets</a>
-                          <ul class="mega-menu xt-column">
-                            <li>
-                              <ul class="xt-single-mega">
-                                <li><a href="single-shop.html">German Coats</a></li>
-                                <li><a href="single-shop.html">Bangladeshi Blezzar</a></li>
-                                <li><a href="single-shop.html">Thailand Gilets</a></li>
-                                <li><a href="single-shop.html">Indian Coats</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li><a href="single-shop.html"><i class="fa flaticon-dress-1"></i>Boutique</a></li>
-                        <li><a href="#more-list"> <i class="fa flaticon-menu"></i> More Categories</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+                  <product-category></product-category>
                 </nav>
               </div>
             </div>
@@ -286,23 +181,25 @@
 <script>
   import ShoppingCart from "./components/ShoppingCart.vue";
   import Slider from "./components/Slider.vue";
+  import ProductCategory from "./components/ProductCategory.vue";
+  import SingleProduct from "./components/SingleProduct.vue";
 
   export default {
     components: {
+      ProductCategory,
       Slider,
-      ShoppingCart
+      ShoppingCart,
+      SingleProduct
     },
-    name: 'App'
+    name: 'App',
+    methods: {
+      reloadPage(){
+        window.location.reload()
+      }
+    }
+
   }
 </script>
 
-<style>
-  /*#app {*/
-  /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
-  /*-webkit-font-smoothing: antialiased;*/
-  /*-moz-osx-font-smoothing: grayscale;*/
-  /*text-align: center;*/
-  /*color: #2c3e50;*/
-  /*margin-top: 60px;*/
-  /*}*/
-</style>
+
+
