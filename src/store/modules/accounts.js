@@ -3,76 +3,67 @@ import axios from 'axios'
 const api = axios.create({baseURL: 'http://localhost:8000/api'});
 
 const state = {
-  productList: [],
-  product: {},
+  users: [],
+  /*pagination attr*/
   pages: [],
   count: 0,
   current_page: 1,
   num_pages: 0,
   next_url: '',
   prev_url: '',
+  /*end of pagination attr*/
+  auth_token: '',
 
-
-};
-
-//getters
+}
 
 const getters = {
-  getProducts(state) {
-    return state.productList;
+  getUsers(state) {
+    return state.users
   },
-  getProduct(state) {
-    return state.product
-  },
-  getPages(state){
+  /*pagination getters*/
+  getPages(state) {
     return state.pages
   },
-  getPageCount(state){
+  getPageCount(state) {
     return state.num_pages
   },
-  getCurrentPage(state){
+  getCurrentPage(state) {
     return state.currentPage
   }
   ,
-  getPreviousUrl(state){
+  getPreviousUrl(state) {
     return state.prev_url
   }
   ,
-  getNextUrl(state){
+  getNextUrl(state) {
     return state.next_url
-  }
+  },
+  /*pagination getters END*/
+
+
+
+  getToken(state) {
+    return state.auth_token
+  },
+
 
 };
 
-
-//actions
 const actions = {
-  fetchProducts(context) {
-    api.get(`/products/`)
+  fetchUsers({commit}) {
+    //use profile endpoint to get more detailed object for the user.
+    api.get(`/profiles`)
       .then(response => {
-        context.commit('setProducts', response.data);
-        console.log(response.data)
+        commit('setUsers', response.data)
+        console.log("user data",response.data)
       })
       .catch(error => {
         console.log(error)
       })
   },
 
-  fetchProduct({commit}, id) {
-    api.get(`/products/` + id, {
-
-    })
-      .then(response => {
-        commit('setProduct', response.data.data)
-        console.log(response.data.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  },
-
-
-  fetchPage(context,link) {
+  //pagination actions
+  fetchPage(context, link) {
 
     api.get(link)
       .then(response => {
@@ -85,36 +76,48 @@ const actions = {
 
   },
 
-  fetchNextPage(context, nextURL){
+  fetchNextPage(context, nextURL) {
     api.get(nextURL)
       .then(response => {
         context.commit('setPage', response.data);
-        console.log("next ",response.data)
+        console.log("next ", response.data)
       })
       .catch(error => {
         console.log(error)
       })
   },
 
-  fetchPreviousPage(context, prevURL){
+  fetchPreviousPage(context, prevURL) {
     api.get(prevURL)
       .then(response => {
         context.commit('setPage', response.data);
-        console.log("prev",response.data)
+        console.log("prev", response.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  },
+  //end pagination action
+
+  login({commit}, credentials) {
+    api.post(`/obtain-token/`, {
+      username: credentials.username,
+      password: credentials.password
+    })
+      .then(response => {
+        if (response.status === 200){
+          commit("setUserToken", response.data.token)
+        }
       })
       .catch(error => {
         console.log(error)
       })
   }
-
-
-
 };
 
-//mutations
 const mutations = {
-  setProducts(state, payload) {
-    state.productList = payload.results;
+  setUsers(state, payload) {
+    state.users = payload.results;
     state.next_url = payload.links.next;
     state.prev_url = payload.links.previous;
     state.count = payload.count;
@@ -123,17 +126,15 @@ const mutations = {
     const links = [];
 
     for (let i = 1; i < state.num_pages; i++) {
-      const link = `/products/?page=${i}`;
+      const link = `/Users/?page=${i}`;
       links.push({pageNumber: i, link: link})
     }
     state.pages = links;
 
   },
-  setProduct(state, payload) {
-    state.product = payload
-  },
+
   setPage(state, payload) {
-    state.productList = payload.results;
+    state.users = payload.results;
     state.next_url = payload.links.next;
     state.prev_url = payload.links.previous;
     state.count = payload.count;
@@ -141,12 +142,4 @@ const mutations = {
     state.current_page = payload.current_page;
 
   }
-
 };
-
-export default {
-  state,
-  getters,
-  actions,
-  mutations
-}
