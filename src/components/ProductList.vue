@@ -1,8 +1,9 @@
 <template>
+<div>
+  <jenga-pro-main-header></jenga-pro-main-header>
 
   <div class="xt-product-subpage">
     <link rel="stylesheet" href="static/css/style.css">
-
     <div class="container">
       <div class="row">
         <div class="col-md-9 col-md-push-3">
@@ -39,11 +40,11 @@
                   <div class="xt-page-pagination">
                     <nav aria-label="Page navigation">
                       <ul class="pagination xt-pagination">
-                        <li v-if="prevUrl"><a href="#" v-on:click.prevent="getPrevPage(prevUrl)" aria-label="Previous"><i class="fa fa-caret-left"></i></a></li>
+                        <li><a href="#" v-on:click.prevent="getPrevPage(prevUrl)" :class="{'disabled': prevUrl}" aria-label="Previous"><i class="fa fa-caret-left"></i></a></li>
 
-                        <li v-for="page in pages.slice(0,5)" v-on:click.prevent="getPage(page.link)"><a href="#">{{page.pageNumber}}</a></li>
+                        <li v-for="page in pages.slice(0,6)" v-on:click.prevent="getPage(page.link)" :class="{'active': currentPage===page.pageNumber}"><a href="#">{{page.pageNumber}}</a></li>
 
-                        <li v-if="nextUrl"><a href="#" v-on:click.prevent="getNextPage(nextUrl)" aria-label="Next"><i class="fa fa-caret-right"></i></a></li>
+                        <li><a href="#" v-on:click.prevent="getNextPage(nextUrl)" :class="{'disabled': nextUrl}" aria-label="Next"><i class="fa fa-caret-right"></i></a></li>
                       </ul>
                     </nav>
                   </div>
@@ -57,10 +58,12 @@
               <div class="xt-each-feature">
                 <!--product item-->
                 <div class="col-md-4 col-sm-4" v-for="product in products">
-                  <div class="xt-feature" style="background-color: rgba(97,106,52,0.24)">
-                    <div class="product-img" style="background-color: rgba(97,106,52,0.24)">
-                      <img v-if="product.img1" :src="product.img1" alt="" height="250" width="358">
-                      <img v-else="!product.img1" src="static/images/no_image.png" alt="" height="120" width="220">
+                  <div class="xt-feature">
+                    <div class="product-img" >
+                      <router-link :to="{name:'SingleProduct', params:{id: product.id} }">
+                      <img v-if="product.img1" :src="product.img1" alt="" height="250" width="358" @click="reloadPage">
+                        <img v-else="!product.img1" src="static/images/no_image.png" alt="" height="120" width="220">
+                      </router-link>
                       <span class="product-tag xt-uppercase">sale!</span>
                     </div>
                     <div class="product-info">
@@ -124,11 +127,11 @@
                   <div class="xt-page-pagination">
                     <nav aria-label="Page navigation">
                       <ul class="pagination xt-pagination">
-                        <li v-if="prevUrl"><a href="#" v-on:click.prevent="getPrevPage(prevUrl)" aria-label="Previous"><i class="fa fa-caret-left"></i></a></li>
+                        <li><a href="#" v-on:click.prevent="getPrevPage(prevUrl)" :class="{'disabled': !nextUrl}" aria-label="Previous"><i class="fa fa-caret-left"></i></a></li>
 
-                        <li v-for="page in pages.slice(0,5)" v-on:click.prevent="getPage(page.link)"><a href="#">{{page.pageNumber}}</a></li>
+                        <li v-for="page in pages.slice(0,6)" v-on:click.prevent="getPage(page.link)" :class="{'active': currentPage===page.pageNumber}"><a href="#">{{page.pageNumber}}</a></li>
 
-                        <li v-if="nextUrl"><a href="#" v-on:click.prevent="getNextPage(nextUrl)" aria-label="Next"><i class="fa fa-caret-right"></i></a></li>
+                        <li><a href="#" v-on:click.prevent="getNextPage(nextUrl)" :class="{'disabled': !nextUrl}" aria-label="Next"><i class="fa fa-caret-right"></i></a></li>
                       </ul>
                     </nav>
                   </div>
@@ -141,12 +144,15 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 <script>
 
   import {mapGetters, mapActions} from 'vuex'
   import axios from 'axios'
+  import JengaProMainHeader from "./MainHeader.vue";
   export default {
+    components: {JengaProMainHeader},
     name: 'ProductList',
 
     computed: {
@@ -180,6 +186,10 @@
       },
       getPrevPage(prevPageUrl){
         this.$store.dispatch('fetchPreviousPage', prevPageUrl)
+      },
+
+      reloadPage(){
+        window.location.reload()
       }
     },
 

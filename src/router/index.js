@@ -4,7 +4,9 @@ import Home from '@/components/Home'
 import ProductList from '@/components/ProductList'
 import SingleProduct from '@/components/SingleProduct'
 import ShoppingCart from '@/components/ShoppingCart'
+import JengaProLogin from '@/components/Login'
 
+import JengaProRegister from '@/components/Register'
 
 
 Vue.use(Router)
@@ -32,7 +34,19 @@ export default new Router({
       path: '/cart',
       name: 'ShoppingCart',
       component: ShoppingCart
-    }
+    },
+
+    {
+      path: '/login',
+      name: 'Login',
+      component: JengaProLogin
+    },
+
+    {
+      path: '/register',
+      name: 'Register',
+      component: JengaProRegister
+    },
 
 
   ]

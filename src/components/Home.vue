@@ -1,23 +1,25 @@
 <template>
- <slider></slider>
+  <div>
+  <product-list></product-list>
+  </div>
 </template>
 
 <script>
-
   import ProductList from "./ProductList.vue";
-  import Slider from "./Slider.vue";
+  import JengaProMainHeader from "./MainHeader.vue";
 export default {
   components: {
-    Slider,
+    JengaProMainHeader,
     ProductList,
     },
   name: 'Home',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
 
+  methods: {
+    reloadPage(){
+      window.location.reload()
+    }
   }
+
 }
 </script>
 

@@ -1,4 +1,6 @@
 <template>
+  <div>
+    <jenga-pro-main-header></jenga-pro-main-header>
   <section class="xt-xt-single-product">
     <div class="container">
       <div class="row">
@@ -104,12 +106,15 @@
     </div>
     <br><br>
   </section>
+  </div>
 </template>
 
 <script>
   import {mapGetters} from 'vuex'
+  import JengaProMainHeader from "./MainHeader.vue";
 
   export default {
+    components: {JengaProMainHeader},
     name: "SingleProduct",
     data() {
       return {

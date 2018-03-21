@@ -20,23 +20,23 @@ const getters = {
     return state.productList;
   },
   getProduct(state) {
-    return state.product
+    return state.product;
   },
-  getPages(state){
+  getPages(state) {
     return state.pages
   },
-  getPageCount(state){
+  getPageCount(state) {
     return state.num_pages
   },
-  getCurrentPage(state){
-    return state.currentPage
+  getCurrentPage(state) {
+    return state.current_page
   }
   ,
-  getPreviousUrl(state){
+  getPreviousUrl(state) {
     return state.prev_url
   }
   ,
-  getNextUrl(state){
+  getNextUrl(state) {
     return state.next_url
   }
 
@@ -56,13 +56,11 @@ const actions = {
       })
   },
 
-  fetchProduct({commit}, id) {
-    api.get(`/products/` + id, {
-
-    })
+  fetchProduct(context, id) {
+    api.get(`/products/${id}/`)
       .then(response => {
-        commit('setProduct', response.data.data)
-        console.log(response.data.data)
+        context.commit('setProduct', response.data);
+        console.log(response.data)
       })
       .catch(error => {
         console.log(error)
@@ -70,7 +68,7 @@ const actions = {
   },
 
 
-  fetchPage(context,link) {
+  fetchPage(context, link) {
 
     api.get(link)
       .then(response => {
@@ -83,28 +81,27 @@ const actions = {
 
   },
 
-  fetchNextPage(context, nextURL){
+  fetchNextPage(context, nextURL) {
     api.get(nextURL)
       .then(response => {
         context.commit('setPage', response.data);
-        console.log("next ",response.data)
+        console.log("next ", response.data)
       })
       .catch(error => {
         console.log(error)
       })
   },
 
-  fetchPreviousPage(context, prevURL){
+  fetchPreviousPage(context, prevURL) {
     api.get(prevURL)
       .then(response => {
         context.commit('setPage', response.data);
-        console.log("prev",response.data)
+        console.log("prev", response.data)
       })
       .catch(error => {
         console.log(error)
       })
   }
-
 
 
 };
