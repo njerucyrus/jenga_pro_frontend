@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import cart from './modules/cart'
 import products from './modules/products';
+import accounts from './modules/accounts';
 import createPersistedState from 'vuex-persistedstate';
 
 Vue.use(Vuex);
@@ -18,7 +19,8 @@ const plugins = [createPersistedState()];
 export const store = new Vuex.Store({
  modules:{
    cart,
-   products
+   products,
+   accounts
  },
   strict: debug,
   plugins

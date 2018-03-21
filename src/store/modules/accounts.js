@@ -59,10 +59,10 @@ const getters = {
 const actions = {
   fetchUsers({commit}) {
     //use profile endpoint to get more detailed object for the user.
-    api.get(`/profiles`)
+    api.get(`/profiles/`)
       .then(response => {
         commit('setUsers', response.data)
-        console.log("user data", response.data)
+        console.log("user ", response.data.results)
       })
       .catch(error => {
         console.log(error)
@@ -179,10 +179,11 @@ const mutations = {
   }
 
 };
-
-export default {
+ export default {
+  namespaced: true,
   state,
   getters,
   actions,
-  mutations,
+  mutations
 }
+
