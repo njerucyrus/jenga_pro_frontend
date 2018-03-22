@@ -107,27 +107,31 @@ const actions = {
   //end pagination action
 
   createAccount({commit}, payload) {
+    console.log("account payload ",payload)
     commit('setLoading', true);
     commit('clearError');
+    commit('clearSuccessMsg');
     api.post(`/users/`, payload)
       .then(response => {
         if (response.status === 201) {
           commit('setLoading', false)
-          let message = "Account created Successfully";
+          const message = "Account created Successfully. Redirecting to Login page...";
           commit('setSuccessMsg', message)
+          console.log("res created " ,response )
+
         } else {
 
           let message = "An error occurred while creating your account please try again later"
           commit('setError', message);
           commit('setLoading', false);
-          console.log("ACC_ERR0", response)
+          console.log("ACC_ERR0", response.data.username)
         }
       })
       .catch(error => {
         let message = "An error occurred while creating your account please try again later"
         commit('setError', message);
         commit('setLoading', false);
-        console.log("ACC_ERR1", error)
+        console.log("ACC_ERR1", error.message)
       })
 
   }
@@ -166,7 +170,7 @@ const mutations = {
     state.loading = payload
   },
 
-  setSuccessMgs(state, payload){
+  setSuccessMsg(state, payload){
     state.success_msg = payload;
   },
 
@@ -176,6 +180,9 @@ const mutations = {
 
   clearError(state){
     state.error = null
+  },
+  clearSuccessMsg(state){
+    state.success_msg = null
   }
 
 };

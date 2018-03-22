@@ -7,6 +7,7 @@
 <script>
   import ProductList from "./ProductList.vue";
   import JengaProMainHeader from "./MainHeader.vue";
+
 export default {
   components: {
     JengaProMainHeader,

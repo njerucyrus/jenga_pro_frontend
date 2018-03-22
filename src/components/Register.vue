@@ -1,18 +1,21 @@
 <template>
   <div>
     <jenga-pro-login-header></jenga-pro-login-header>
-    <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="container container-fluid" style="margin-top: 50px; margin-bottom: 50px;">
       <div class="row">
-        <div class="col-lg-8 col-md-8 col-xs-8 col-md-push-2">
+        <div class="col-lg-8 col-md-8 col-xs-8 col-md-offset-2 ">
           <div class="panel panel-info">
             <h6 class="panel-heading" style="margin-top:0px;">Register Here</h6>
             <div class="panel-body">
-              <div class="errors">
-                 <ul class="list-group">
-                   <li v-if="errors" class="list-group-item alert-danger"  v-for="error in errors">{{error}}</li>
-                 </ul>
+              <div id="flash-message">
+                <flash-message></flash-message>
               </div>
-              <form>
+              <div id="errors">
+                <ul class="list-group">
+                  <li v-if="errors" class="list-group-item alert-danger" v-for="error in errors">{{error}}</li>
+                </ul>
+              </div>
+              <form @submit.prevent="validateForm">
                 <div class="row">
                   <div class="col col-md-12">
                     <div class="col col-md-6">
@@ -55,21 +58,22 @@
                 <div class="row" style="margin-top: 5px;">
                   <div class="col col-md-12">
                     <div class="col-md-12">
-                      <select v-model="accountType" class="select-beast form-control">
-                        <option>Select Account Type</option>
+                      <select v-model="accountType" class="form-control">
+                        <option value="customer">Select Account Type</option>
                         <option value="Customer">Customer</option>
                         <option value="Foreman">Foreman</option>
                       </select>
 
-                      <span> You selected {{ accountType}}</span>
                     </div>
                   </div>
                 </div>
 
-                <div class="row">
+                <div class="row" style="margin-top: 15px;">
                   <div class="col-md-12">
                     <div class="col-md-12">
-                      <button class="btn btn-default pull-left" type="submit" @click="validateForm">Register</button>
+                      <button class="btn btn-default pull-left" @click="createAccount">
+                        Register
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -118,16 +122,16 @@
 
     computed: {
       ...mapGetters({
-        users: 'accounts/getUsers'
+        users: 'accounts/getUsers',
+        loading: 'accounts/getLoading',
+        error: 'accounts/getError',
+        successMsg: 'accounts/getSuccessMsg',
       }),
 
-      name: function () {
-        return this.firstName + " " + this.lastName
-      }
     },
     methods: {
-      validateForm : function (e) {
-        if (this.firstName && this.lastName && this.email &&  this.phoneNumber && this.password===this.confirmPassword) return
+      validateForm: function (e) {
+        if (this.firstName && this.lastName && this.email && this.phoneNumber && this.password === this.confirmPassword) return true
         this.errors = []
         if (!this.firstName) this.errors.push("First Name is required")
         if (!this.lastName) this.errors.push("Last Name is required")
@@ -135,23 +139,57 @@
         if (!this.phoneNumber) this.errors.push("Phone Number is required")
         if (!this.password && !this.confirmPassword) this.errors.push("Password is required")
         if (this.password !== this.confirmPassword) this.errors.push("Password did not match")
-      e.preventDefault()
+
+      },
+      createAccount: function () {
+        if (this.validateForm() && this.available) {
+          const accountPayload = {
+            first_name: this.firstName,
+            last_name: this.lastName,
+            email: this.email,
+            phone_number: this.phoneNumber,
+            username: this.email,
+            password: this.password,
+            account_type: this.accountType
+          };
+
+          this.$store.dispatch('accounts/createAccount', accountPayload)
+        }
       }
+
     },
 
     watch: {
       email(email) {
-
         const data = this.users.find(data => data.user.email === email);
-        console.log(this)
+        this.available = !data;
+      },
+      successMsg(newVal, oldVal) {
 
-        if (data) {
-         this.available = false;
+        if (newVal !== null) {
+          this.flash(newVal, 'success', {
+            timeout: 1000,
+            important: true
+          });
+
+          const vm = this;
+          window.setTimeout(function () {
+            vm.$router.push('/login')
+          }, 1000)
         }
-        else{
-          this.available = true
+
+      },
+
+      error(newVal, oldVal) {
+        if (newVal !== null) {
+          this.flash(newVal, 'error', {
+            timeout: 3000,
+          });
+
         }
       }
-    },
+
+
+    }
   }
 </script>

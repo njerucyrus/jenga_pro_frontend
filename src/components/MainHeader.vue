@@ -33,11 +33,15 @@
               <li><a href="">My wishlist</a></li>
               <li><a href="">Checkout</a></li>
               <li>
+              <li v-if="!isLoggedIn && token===null ">
                 <router-link :to="{name:'Login'}">
                   <a href="">login</a>
                 </router-link>
-
               </li>
+              <li v-if="isLoggedIn && token!==null">
+                <a href="#"  @click="logout">Logout</a>
+              </li>
+
             </ul>
           </div>
         </div>
@@ -140,6 +144,7 @@
 <script>
   import ShoppingCart from "./ShoppingCart.vue";
   import ProductCategory from "./ProductCategory.vue";
+  import  {mapGetters} from 'vuex'
 
   export default {
     components: {
@@ -148,11 +153,33 @@
     },
     name: "JengaProMainHeader",
 
+    computed: {
+      ...mapGetters({
+        isLoggedIn: 'auth/getIsLoggedIn',
+        token: 'auth/getAuthToken'
+      })
+    },
+
     methods: {
       reloadPage() {
         window.location.reload()
+      },
+      logout: function (e) {
+        e.preventDefault()
+       const confirm =  window.confirm("Are you sure you want to logout ?")
+        if (confirm){
+          this.$store.dispatch('auth/logout')
+          this.flash("You are now logged out", 'info', {
+            timeout: 1000,
+          })
+          this.$router.push('/')
+        }
       }
-    }
+    },
+
+
+
+
 
   }
 </script>

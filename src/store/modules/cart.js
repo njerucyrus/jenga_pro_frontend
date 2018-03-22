@@ -47,9 +47,13 @@ const actions = {
   addToCart({state, commit}, product) {
     const cartItem = state.cartItems.find(item => item.id === product.id)
     if (!cartItem) {
-      commit('pushProductToCart', {id: product.id})
+      commit('pushProductToCart', {id: product.id, quantity: product.quantity})
     } else {
-      commit('incrementItemQuantity', cartItem)
+      if (product.quantity > 1){
+        commit('incrementQtyWithMore', {item: cartItem, quantity: product.quantity})
+      }else {
+        commit('incrementItemQuantity', cartItem)
+      }
     }
   },
   removeFromCart({state, commit}, product) {
@@ -59,10 +63,10 @@ const actions = {
 
 
 const mutations = {
-  pushProductToCart(state, {id}) {
+  pushProductToCart(state, payload) {
     state.cartItems.push({
-        id,
-      quantity: 1
+        id:payload.id,
+      quantity: payload.quantity
     })
   },
 
@@ -80,7 +84,13 @@ const mutations = {
   incrementItemQuantity(state, {id}) {
     const cartItem = state.cartItems.find(item => item.id === id);
     cartItem.quantity++
+  },
+
+  incrementQtyWithMore(state, payload){
+    const cartItem = state.cartItems.find(item => item.id === payload.item.id);
+    cartItem.quantity =parseInt(payload.quantity)
   }
+
 
 };
 

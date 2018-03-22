@@ -85,7 +85,7 @@
                           <span class="new-price xt-semibold">{{product.measuring_unit.unit_name}}</span>
                         </div>
                         <div class="add-cart">
-                          <button class="btn btn-fill" @click="addToCart(product)">Add to cart</button>
+                          <button class="btn btn-fill" @click="addToCart({id: product.id, quantity:1})">Add to cart</button>
                           <ul class="reaction">
                             <li><a href=""><i class="fa fa-search"></i></a></li>
                             <li><a href=""><i class="fa fa-heart-o"></i></a></li>
@@ -161,11 +161,11 @@
           products: 'getProducts',
           pages: 'getPages',
           pageCount: 'getPageCount',
-          cartCount: 'totalItems',
           currentPage: 'getCurrentPage',
           nextUrl: 'getNextUrl',
           prevUrl: 'getPreviousUrl',
           cartQuantityCount: 'getCartItemQuantityCount',
+          cartCount: 'totalItems',
 
         }
       )

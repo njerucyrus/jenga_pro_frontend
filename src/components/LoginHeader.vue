@@ -32,12 +32,6 @@
             <ul>
               <li><a href="">My wishlist</a></li>
               <li><a href="">Checkout</a></li>
-              <li>
-                <router-link :to="{name:'Login'}">
-                  <a href="">login</a>
-                </router-link>
-
-              </li>
             </ul>
           </div>
         </div>
@@ -93,11 +87,15 @@
 </template>
 <script>
   export default {
+
     name: 'JengaProLoginHeader',
     methods: {
       reloadPage(){
         window.location.reload()
       }
-    }
+    },
+
+
+
   }
 </script>
