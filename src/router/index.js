@@ -5,8 +5,8 @@ import ProductList from '@/components/ProductList'
 import SingleProduct from '@/components/SingleProduct'
 import ShoppingCart from '@/components/ShoppingCart'
 import JengaProLogin from '@/components/Login'
-
 import JengaProRegister from '@/components/Register'
+import JengaProCartDetailView from '@/components/CartDetailView'
 
 
 Vue.use(Router)
@@ -46,6 +46,12 @@ export default new Router({
       path: '/register',
       name: 'Register',
       component: JengaProRegister
+    },
+
+    {
+      path: '/cart-detail',
+      name: 'CartDetail',
+      component: JengaProCartDetailView
     },
 
 

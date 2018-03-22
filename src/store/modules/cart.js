@@ -13,10 +13,12 @@ const getters = {
     return state.cartItems.map(({id, quantity}) => {
       const product = rootState.products.productList.find(product => product.id === id)
         return {
+         id:product.id,
           name: product.product_name,
           price: product.cost_per_unit,
           img_url: product.img1,
-          quantity
+          quantity,
+          sub_total: product.cost_per_unit * quantity
         }
 
     })

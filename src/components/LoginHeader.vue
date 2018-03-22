@@ -31,7 +31,11 @@
           <div class="user-nav pull-right col-md-6 col-sm-6 col-xs-12">
             <ul>
               <li><a href="">My wishlist</a></li>
-              <li><a href="">Checkout</a></li>
+              <li v-if="cartItems">
+                <router-link :to="{name: 'CartDetail'}">
+                  <a href="">Checkout</a>
+                </router-link>
+              </li>
             </ul>
           </div>
         </div>
@@ -86,6 +90,7 @@
   </header>
 </template>
 <script>
+  import {mapGetters} from 'vuex'
   export default {
 
     name: 'JengaProLoginHeader',
@@ -94,6 +99,11 @@
         window.location.reload()
       }
     },
+    computed: {
+      ...mapGetters({
+        cartItems: 'getCartItems'
+      })
+    }
 
 
 

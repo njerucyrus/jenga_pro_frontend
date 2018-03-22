@@ -19,9 +19,9 @@
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                      aria-expanded="false">USD <span class="fa fa-angle-down"></span> </a>
                   <ul class="dropdown-menu xt-lang-dropdown">
-                    <li><a href="">USD</a></li>
-                    <li><a href="causes-list.html">EURO</a></li>
-                    <li><a href="causes-details.html">Riyal</a></li>
+                    <li><a href="#">USD</a></li>
+                    <li><a href="#">EURO</a></li>
+                    <li><a href="#">Riyal</a></li>
                   </ul>
                 </li>
               </ul>
@@ -31,7 +31,11 @@
           <div class="user-nav pull-right col-md-6 col-sm-6 col-xs-12">
             <ul>
               <li><a href="">My wishlist</a></li>
-              <li><a href="">Checkout</a></li>
+              <li v-if="cartItems">
+                <router-link :to="{name: 'CartDetail'}">
+                <a href="">Checkout</a>
+                </router-link>
+              </li>
               <li>
               <li v-if="!isLoggedIn && token===null ">
                 <router-link :to="{name:'Login'}">
@@ -156,7 +160,8 @@
     computed: {
       ...mapGetters({
         isLoggedIn: 'auth/getIsLoggedIn',
-        token: 'auth/getAuthToken'
+        token: 'auth/getAuthToken',
+        cartItems: 'getCartItems'
       })
     },
 

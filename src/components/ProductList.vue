@@ -204,11 +204,11 @@
       cartCount(newCount, oldCount) {
         if (newCount > oldCount) {
           this.flash('Item Added to the cart', 'success', {
-            timeout: 3000,
+            timeout: 1000,
           });
         } else if (newCount < oldCount) {
           this.flash('Item Removed', 'info', {
-            timeout: 3000,
+            timeout: 1000,
           });
         }
 
@@ -217,7 +217,7 @@
 
         if (newCount && oldCount >0) {
           this.flash('item quantity updated ', 'success', {
-            timeout: 3000,
+            timeout: 1000,
           });
 
         }

@@ -22,14 +22,16 @@
 
           <li>
             <a href="#" class="subtotal top-checkout">
-              <h3>Subtotal: </h3>
+              <h3>TOTAL COST </h3>
               <span class="total-price">Ksh {{ cartTotal }} </span>
             </a>
           </li>
           <li>
-            <a href="" class="process top-checkout">
-              <h3>Process to Checkout</h3>
+            <a href="#" class="process top-checkout" @click="goToCartDetail">
+
+              <h3>Proceed to Checkout</h3>
             </a>
+
           </li>
         </ul>
       </li>
@@ -52,6 +54,11 @@
 
       })
       ,
+    },
+    methods: {
+      goToCartDetail(){
+        this.$router.push('/cart-detail')
+      }
     }
 
 
