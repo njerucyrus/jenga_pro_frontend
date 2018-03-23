@@ -10,18 +10,15 @@
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                      aria-expanded="false">English <span class="fa fa-angle-down"></span> </a>
                   <ul class="dropdown-menu xt-lang-dropdown">
-                    <li><a href="#">France</a></li>
-                    <li><a href="#">Bangla</a></li>
-                    <li><a href="#">Swidesh</a></li>
+                    <li><a href="#">Kiswahili</a></li>
+
                   </ul>
                 </li>
                 <li class="dropdown">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                     aria-expanded="false">USD <span class="fa fa-angle-down"></span> </a>
+                     aria-expanded="false">KSH<span class="fa fa-angle-down"></span> </a>
                   <ul class="dropdown-menu xt-lang-dropdown">
                     <li><a href="#">USD</a></li>
-                    <li><a href="#">EURO</a></li>
-                    <li><a href="#">Riyal</a></li>
                   </ul>
                 </li>
               </ul>
@@ -30,7 +27,6 @@
 
           <div class="user-nav pull-right col-md-6 col-sm-6 col-xs-12">
             <ul>
-              <li><a href="">My wishlist</a></li>
               <li v-if="cartItems">
                 <router-link :to="{name: 'CartDetail'}">
                   <a href="">Checkout</a>

@@ -10,18 +10,16 @@
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                      aria-expanded="false">English <span class="fa fa-angle-down"></span> </a>
                   <ul class="dropdown-menu xt-lang-dropdown">
-                    <li><a href="">France</a></li>
-                    <li><a href="causes-list.html">Bangla</a></li>
-                    <li><a href="causes-details.html">Swidesh</a></li>
+                    <li><a href="">Kiswahili</a></li>
+
                   </ul>
                 </li>
                 <li class="dropdown">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                     aria-expanded="false">USD <span class="fa fa-angle-down"></span> </a>
+                     aria-expanded="false">KSH <span class="fa fa-angle-down"></span> </a>
                   <ul class="dropdown-menu xt-lang-dropdown">
                     <li><a href="#">USD</a></li>
-                    <li><a href="#">EURO</a></li>
-                    <li><a href="#">Riyal</a></li>
+
                   </ul>
                 </li>
               </ul>
@@ -30,7 +28,6 @@
 
           <div class="user-nav pull-right col-md-6 col-sm-6 col-xs-12">
             <ul>
-              <li><a href="">My wishlist</a></li>
               <li v-if="cartItems">
                 <router-link :to="{name: 'CartDetail'}">
                 <a href="">Checkout</a>
@@ -60,7 +57,7 @@
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span aria-hidden="true" class="icon"></span>
               </button>
-              <a class="navbar-brand" href="index.html"><img src="static/images/flogo.png" alt=""
+              <a class="navbar-brand" href="#"><img src="static/images/flogo.png" alt=""
                                                              class="img-responsive"></a>
             </div>
 
@@ -112,24 +109,18 @@
 
           <div class="col-md-8 col-sm-10 col-xs-12 xt-header-search">
             <div class="form-group xt-form search-bar  col-md-8 col-sm-8 col-xs-7 padding-right-o">
-              <input type="text" class="form-control" placeholder="Search for snippets"/>
+              <input type="text" class="form-control" placeholder="Search for products here"/>
             </div>
             <div class="form-group xt-form xt-search-cat col-md-4 col-sm-4 col-xs-5 padding-left-o ">
               <div class="xt-select xt-search-opt">
                 <select class="xt-dropdown-search select-beast">
                   <option>All Categories</option>
-                  <option>Boutique</option>
-                  <option>Shirt</option>
-                  <option>Pants</option>
-                  <option>Jeans</option>
-                  <option>Bourkha</option>
-                  <option>Hijab</option>
-                  <option>T-Shirt</option>
-                  <option>Coats</option>
-                  <option>Blezzar</option>
-                  <option>Gilets</option>
-                  <option>3 Piece</option>
-                  <option>Cosmetic</option>
+                  <option>Cement</option>
+                  <option>Sand</option>
+                  <option>Building Stones</option>
+                  <option>Ballast</option>
+                  <option>Tiles</option>
+                  <option>Roofing Materials</option>
                 </select>
               </div>
               <div class="xt-search-opt xt-search-btn">

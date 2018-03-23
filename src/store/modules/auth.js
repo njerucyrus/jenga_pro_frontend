@@ -5,7 +5,8 @@ const state = {
   auth_token: null,
   loading: false,
   error: null,
-  success_msg: null
+  success_msg: null,
+  currentUser: {},
 }
 
 const getters = {
@@ -25,7 +26,12 @@ const getters = {
   },
   getIsLoggedIn(state){
     return state.isLoggedIn
+  },
+
+  getCurrentUser(state){
+    return state.currentUser
   }
+
 };
 
 
@@ -37,12 +43,26 @@ const actions = {
 
     api.post(`/obtain-token/`, credentials)
       .then(response => {
-        commit('setLoading', false);
         if (response.status === 200) {
-          const message = "Login Successful. Redirecting..."
-          commit('setSuccessMsg', message)
-          commit("setAuthToken", response.data.token)
-          commit("setIsLoggedIn", true)
+
+          commit("setAuthToken", response.data.token);
+          //fetch the user by username to be used to set the current user into the auth state
+          api.get(`/profiles/?username=${credentials.username}`)
+            .then(response => {
+                if (response.status === 200){
+                  commit('setLoading', false);
+                  const message = "Login Successful. Redirecting...";
+                  commit('setSuccessMsg', message);
+
+                  commit("setIsLoggedIn", true);
+                  commit("setCurrentUser", response.data)
+                }
+            })
+            .catch(error => {
+              console.log(error)
+            });
+
+
         } else if (response.status === 400) {
           const message = "Invalid username or password";
           commit('setError', message)
@@ -94,6 +114,10 @@ const mutations = {
 
   setIsLoggedIn(state, payload){
     state.isLoggedIn = payload
+  },
+
+  setCurrentUser(state, payload){
+    state.currentUser = payload
   }
 
 };

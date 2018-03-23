@@ -4,108 +4,108 @@
       <a href="#">All Category</a>
       <ul class="xt-dropdown">
         <li>
-          <a class="xt-nav-link" href="single-shop.html"><i class="fa flaticon-glasses"></i> FASHION</a>
-          <ul class="mega-menu">
-            <li>
-              <ul class="xt-single-mega">
-                <li><a href="single-shop.html">Bags</a></li>
-                <li><a href="single-shop.html">Funky</a></li>
-                <li><a href="single-shop.html">Ear Wear</a></li>
-                <li><a href="single-shop.html">Shoes</a></li>
-                <li><a href="single-shop.html">Cosmetic</a></li>
-              </ul>
-            </li>
-            <li>
-              <ul class="xt-single-mega">
-                <li><a href="single-shop.html">Shirt</a></li>
-                <li><a href="single-shop.html">Pant</a></li>
-                <li><a href="single-shop.html">Trousers</a></li>
-                <li><a href="single-shop.html">Jackets & sweater</a></li>
-                <li><a href="single-shop.html">T-Shirts</a></li>
-              </ul>
-            </li>
-          </ul>
+          <a class="xt-nav-link" href="#"><i class="fa flaticon-menu"></i>Cement</a>
+          <!--<ul class="mega-menu">-->
+            <!--<li>-->
+              <!--<ul class="xt-single-mega">-->
+                <!--<li><a href="#">Bags</a></li>-->
+                <!--<li><a href="#">Funky</a></li>-->
+                <!--<li><a href="#">Ear Wear</a></li>-->
+                <!--<li><a href="#">Shoes</a></li>-->
+                <!--<li><a href="#">Cosmetic</a></li>-->
+              <!--</ul>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<ul class="xt-single-mega">-->
+                <!--<li><a href="#">Shirt</a></li>-->
+                <!--<li><a href="#">Pant</a></li>-->
+                <!--<li><a href="#">Trousers</a></li>-->
+                <!--<li><a href="#">Jackets & sweater</a></li>-->
+                <!--<li><a href="#">T-Shirts</a></li>-->
+              <!--</ul>-->
+            <!--</li>-->
+          <!--</ul>-->
         </li>
         <li>
-          <a class="xt-nav-link" href="single-shop.html"><i class="fa flaticon-dress"></i> WOMEN'S</a>
-          <ul class="mega-menu">
-            <li>
-              <ul class="xt-single-mega">
-                <li><a href="single-shop.html">Accessories</a></li>
-                <li><a href="single-shop.html">Ornaments</a></li>
-                <li><a href="single-shop.html">Shoes</a></li>
-                <li><a href="single-shop.html">3 Piece</a></li>
-                <li><a href="single-shop.html">Cosmetic</a></li>
-              </ul>
-            </li>
-            <li>
-              <ul class="xt-single-mega">
-                <li><a href="single-shop.html">Ring</a></li>
-                <li><a href="single-shop.html">Bags</a></li>
-                <li><a href="single-shop.html">Ear Wear</a></li>
-                <li><a href="single-shop.html">Storage</a></li>
-                <li><a href="single-shop.html">Office</a></li>
-              </ul>
-            </li>
-          </ul>
+          <a class="xt-nav-link" href="#"><i class="fa flaticon-menu"></i>Sand</a>
+          <!--<ul class="mega-menu">-->
+            <!--<li>-->
+              <!--<ul class="xt-single-mega">-->
+                <!--<li><a href="#">Accessories</a></li>-->
+                <!--<li><a href="#">Ornaments</a></li>-->
+                <!--<li><a href="#">Shoes</a></li>-->
+                <!--<li><a href="#">3 Piece</a></li>-->
+                <!--<li><a href="#">Cosmetic</a></li>-->
+              <!--</ul>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<ul class="xt-single-mega">-->
+                <!--<li><a href="#">Ring</a></li>-->
+                <!--<li><a href="#">Bags</a></li>-->
+                <!--<li><a href="#">Ear Wear</a></li>-->
+                <!--<li><a href="#">Storage</a></li>-->
+                <!--<li><a href="#">Office</a></li>-->
+              <!--</ul>-->
+            <!--</li>-->
+          <!--</ul>-->
         </li>
-        <li><a href="single-shop.html"><i class="fa flaticon-high-heel"></i> SHOES</a></li>
+        <li><a href="#"><i class="fa flaticon-menu"></i>Ballast</a></li>
+        <!--<li>-->
+          <!--<a class="xt-nav-link" href="#"><i class="fa flaticon-v-neck-shirt"></i>Ballast</a>-->
+          <!--<ul class="mega-menu xt-column">-->
+            <!--<li>-->
+              <!--<ul class="xt-single-mega">-->
+                <!--<li><a href="#">Jeans Pant</a></li>-->
+                <!--<li><a href="#">T-Shirts</a></li>-->
+                <!--<li><a href="#">Pant</a></li>-->
+                <!--<li><a href="#">Jackets</a></li>-->
+                <!--<li><a href="#">Cap</a></li>-->
+              <!--</ul>-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</li>-->
+        <li><a href="#"><i class="fa flaticon-menu"></i> Building Stones</a></li>
+        <!--<li>-->
+          <!--<a class="xt-nav-link" href="#"><i class="fa flaticon-cosmetics"></i> COSMETICS</a>-->
+          <!--<ul class="mega-menu xt-column">-->
+            <!--<li>-->
+              <!--<ul class="xt-single-mega">-->
+                <!--<li><a href="#">Lipstick</a></li>-->
+                <!--<li><a href="#">Makeup Brush</a></li>-->
+                <!--<li><a href="#">Nail Polish</a></li>-->
+                <!--<li><a href="#"> Hair Dryers</a></li>-->
+              <!--</ul>-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</li>-->
         <li>
-          <a class="xt-nav-link" href="single-shop.html"><i class="fa flaticon-v-neck-shirt"></i> MAN'S</a>
-          <ul class="mega-menu xt-column">
-            <li>
-              <ul class="xt-single-mega">
-                <li><a href="single-shop.html">Jeans Pant</a></li>
-                <li><a href="single-shop.html">T-Shirts</a></li>
-                <li><a href="single-shop.html">Pant</a></li>
-                <li><a href="single-shop.html">Jackets</a></li>
-                <li><a href="single-shop.html">Cap</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="single-shop.html"><i class="fa flaticon-jacket"></i> JACKETS</a></li>
-        <li>
-          <a class="xt-nav-link" href="single-shop.html"><i class="fa flaticon-cosmetics"></i> COSMETICS</a>
-          <ul class="mega-menu xt-column">
-            <li>
-              <ul class="xt-single-mega">
-                <li><a href="single-shop.html">Lipstick</a></li>
-                <li><a href="single-shop.html">Makeup Brush</a></li>
-                <li><a href="single-shop.html">Nail Polish</a></li>
-                <li><a href="single-shop.html"> Hair Dryers</a></li>
-              </ul>
-            </li>
-          </ul>
+          <a class="xt-nav-link" href="#"><i class="fa flaticon-menu"></i>Handicles</a>
+          <!--<ul class="mega-menu xt-column">-->
+            <!--<li>-->
+              <!--<ul class="xt-single-mega">-->
+                <!--<li><a href="#">Iranian</a></li>-->
+                <!--<li><a href="#">Arabian</a></li>-->
+                <!--<li><a href="#">Indian</a></li>-->
+                <!--<li><a href="#">Indonesian</a></li>-->
+              <!--</ul>-->
+            <!--</li>-->
+          <!--</ul>-->
         </li>
         <li>
-          <a class="xt-nav-link" href="single-shop.html"><i class="fa flaticon-hijab"></i>BOURKHA & HIJAB</a>
-          <ul class="mega-menu xt-column">
-            <li>
-              <ul class="xt-single-mega">
-                <li><a href="single-shop.html">Iranian</a></li>
-                <li><a href="single-shop.html">Arabian</a></li>
-                <li><a href="single-shop.html">Indian</a></li>
-                <li><a href="single-shop.html">Indonesian</a></li>
-              </ul>
-            </li>
-          </ul>
+          <a class="xt-nav-link" href="#"><i class="fa flaticon-menu"></i>Fired Bricks</a>
+          <!--<ul class="mega-menu xt-column">-->
+            <!--<li>-->
+              <!--<ul class="xt-single-mega">-->
+                <!--<li><a href="#">German Coats</a></li>-->
+                <!--<li><a href="#">Bangladeshi Blezzar</a></li>-->
+                <!--<li><a href="#">Thailand Gilets</a></li>-->
+                <!--<li><a href="#">Indian Coats</a></li>-->
+              <!--</ul>-->
+            <!--</li>-->
+          <!--</ul>-->
         </li>
-        <li>
-          <a class="xt-nav-link" href="single-shop.html"><i class="fa flaticon-jacket-1"></i>Coats & Gilets</a>
-          <ul class="mega-menu xt-column">
-            <li>
-              <ul class="xt-single-mega">
-                <li><a href="single-shop.html">German Coats</a></li>
-                <li><a href="single-shop.html">Bangladeshi Blezzar</a></li>
-                <li><a href="single-shop.html">Thailand Gilets</a></li>
-                <li><a href="single-shop.html">Indian Coats</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="single-shop.html"><i class="fa flaticon-dress-1"></i>Boutique</a></li>
-        <li><a href="#more-list"> <i class="fa flaticon-menu"></i> More Categories</a></li>
+        <li><a href="#"><i class="fa flaticon-menu"></i>Celamic Tiles</a></li>
+        <li><a href="#more-list"> <i class="fa flaticon-menu"></i> Roofing Materials</a></li>
       </ul>
     </li>
   </ul>
