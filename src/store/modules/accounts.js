@@ -6,13 +6,13 @@ const state = {
   pages: [],
   count: 0,
   current_page: 1,
-  num_pages: 0,
-  next_url: '',
-  prev_url: '',
+  numPages: 0,
+  nextUrl: '',
+  prevUrl: '',
   /*end of pagination attr*/
   loading: false,
   error: null,
-  success_msg: null,
+  successMsg: null,
 
 };
 
@@ -25,18 +25,18 @@ const getters = {
     return state.pages
   },
   getPageCount(state) {
-    return state.num_pages
+    return state.numPages
   },
   getCurrentPage(state) {
     return state.currentPage
   }
   ,
   getPreviousUrl(state) {
-    return state.prev_url
+    return state.prevUrl
   }
   ,
   getNextUrl(state) {
-    return state.next_url
+    return state.nextUrl
   },
   /*pagination getters END*/
 
@@ -49,7 +49,7 @@ const getters = {
   },
 
   getSuccessMsg(state){
-    return state.success_msg
+    return state.successMsg
   },
 
 };
@@ -140,14 +140,14 @@ const actions = {
 const mutations = {
   setUsers(state, payload) {
     state.users = payload.results;
-    state.next_url = payload.links.next;
-    state.prev_url = payload.links.previous;
+    state.nextUrl = payload.links.next;
+    state.prevUrl = payload.links.previous;
     state.count = payload.count;
-    state.num_pages = payload.pages;
+    state.numPages = payload.pages;
     state.currentPage = payload.current_page;
     const links = [];
 
-    for (let i = 1; i < state.num_pages; i++) {
+    for (let i = 1; i < state.numPages; i++) {
       const link = `/Users/?page=${i}`;
       links.push({pageNumber: i, link: link})
     }
@@ -157,10 +157,10 @@ const mutations = {
 
   setPage(state, payload) {
     state.users = payload.results;
-    state.next_url = payload.links.next;
-    state.prev_url = payload.links.previous;
+    state.nextUrl = payload.links.next;
+    state.prevUrl = payload.links.previous;
     state.count = payload.count;
-    state.num_pages = payload.pages;
+    state.numPages = payload.pages;
     state.current_page = payload.current_page;
 
   },
@@ -169,7 +169,7 @@ const mutations = {
   },
 
   setSuccessMsg(state, payload){
-    state.success_msg = payload;
+    state.successMsg = payload;
   },
 
   setError(state, payload){
@@ -180,7 +180,7 @@ const mutations = {
     state.error = null
   },
   clearSuccessMsg(state){
-    state.success_msg = null
+    state.successMsg = null
   }
 
 };

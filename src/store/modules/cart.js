@@ -1,14 +1,19 @@
+import api from '../api'
+
 const state = {
   cartItems: [],
   checkoutStatus: null,
+  loading: false,
+  successMsg: null,
+  error: null
 
 };
 
 
 //getters
 const getters = {
-  getCartItems: (state, getters, rootState) => {
 
+  getCartItems: (state, getters, rootState) => {
     return state.cartItems.map(({id, quantity}) => {
       const product = rootState.products.productList.find(product => product.id === id)
       return {
@@ -24,7 +29,7 @@ const getters = {
     })
   },
 
-  totalItems(state) {
+  totalItems: (state) => {
     return state.cartItems.length
   },
 
@@ -38,6 +43,18 @@ const getters = {
     return getters.getCartItems.reduce((total, product) => {
       return total + product.price * product.quantity
     }, 0)
+  },
+
+  getOrderDetails: (state, getters) => {
+    //this method returns a string representation of cart items on checkout/
+    //the string representation is used to create the order details
+    const details = [];
+    getters.getCartItems.forEach(item => {
+      const detail = `${item.quantity } ${item.unit_name} of ${item.name} @ KSH ${item.price}\n`
+      details.push(detail)
+    });
+
+    return details.join(', ');
   }
 
 
@@ -60,6 +77,58 @@ const actions = {
   },
   removeFromCart({state, commit}, product) {
     commit('popProductFromCart', product)
+  },
+
+  checkout({state, commit}, {order, shipping}) {
+
+    commit('setLoading', true);
+    commit('clearError');
+    commit('clearSuccessMsg');
+    const savedCartItems = [...state.cartItems];
+
+    api.post(`/orders/`, order)
+      .then(response => {
+        if (response.status === 201) {
+          //add order id to the shipping info for creating fk relation
+          shipping['order'] = response.data.id;
+          //make api call to shipping endpoint to create the resource
+          api.post(`/orders/shipping/`, shipping)
+            .then(response => {
+              if (response.status === 201) {
+
+                commit('setLoading', false)
+                commit('setCheckoutStatus', 'successful');
+                commit('setCartItems', {items: []});
+
+                const message = "Checkout completed successfully"
+                commit('setSuccessMsg', message)
+
+              } else {
+
+                const message = "An error occurred while processing your checkout please try again later"
+
+                commit('setSuccessMsg', message)
+                commit('setLoading', false)
+
+                //Rollback the cart items incase there is error
+                commit('setCartItems', savedCartItems);
+                console.log("error ", response)
+
+              }
+            })
+            .catch(error => {
+
+              commit('setLoading', false)
+
+              const message = "An error occurred while processing your checkout please try again later";
+              commit('setSuccessMsg', message);
+
+              //Rollback the cart items incase there is error
+              commit('setCartItems', {items: savedCartItems});
+              console.log("error ", error);
+            })
+        }
+      })
   }
 };
 
@@ -91,6 +160,25 @@ const mutations = {
   incrementQtyWithMore(state, payload) {
     const cartItem = state.cartItems.find(item => item.id === payload.item.id);
     cartItem.quantity = parseInt(payload.quantity)
+  },
+
+  setLoading(state, payload) {
+    state.loading = payload
+  },
+
+  setSuccessMsg(state, payload) {
+    state.successMsg = payload;
+  },
+
+  setError(state, payload) {
+    state.error = payload
+  },
+
+  clearError(state) {
+    state.error = null
+  },
+  clearSuccessMsg(state) {
+    state.successMsg = null
   }
 
 

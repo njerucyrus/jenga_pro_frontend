@@ -5,7 +5,7 @@ const state = {
   auth_token: null,
   loading: false,
   error: null,
-  success_msg: null,
+  successMsg: null,
   currentUser: {},
 }
 
@@ -22,7 +22,7 @@ const getters = {
   },
 
   getSuccessMsg(state) {
-    return state.success_msg
+    return state.successMsg
   },
   getIsLoggedIn(state){
     return state.isLoggedIn
@@ -105,11 +105,11 @@ const mutations = {
   },
 
   clearSuccessMsg(state) {
-    state.success_msg = null
+    state.successMsg = null
   },
 
   setSuccessMsg(state, payload) {
-    state.success_msg = payload
+    state.successMsg = payload
   },
 
   setIsLoggedIn(state, payload){

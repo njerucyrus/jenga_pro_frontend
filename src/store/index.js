@@ -4,7 +4,7 @@ import cart from './modules/cart'
 import products from './modules/products';
 import accounts from './modules/accounts';
 import auth from './modules/auth';
-import sales from './modules/sales';
+import orders from './modules/orders';
 
 import createPersistedState from 'vuex-persistedstate';
 
@@ -25,7 +25,7 @@ export const store = new Vuex.Store({
    products,
    accounts,
    auth,
-   sales
+   orders
  },
   strict: debug,
   plugins

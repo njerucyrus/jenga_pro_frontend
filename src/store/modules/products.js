@@ -6,10 +6,10 @@ const state = {
   product: {},
   pages: [],
   count: 0,
-  current_page: 1,
-  num_pages: 0,
-  next_url: '',
-  prev_url: '',
+  currentPage: 1,
+  numPages: 0,
+  nextUrl: '',
+  prevUrl: '',
 };
 
 //getters
@@ -25,18 +25,18 @@ const getters = {
     return state.pages
   },
   getPageCount(state) {
-    return state.num_pages
+    return state.numPages
   },
   getCurrentPage(state) {
-    return state.current_page
+    return state.currentPage
   }
   ,
   getPreviousUrl(state) {
-    return state.prev_url
+    return state.prevUrl
   }
   ,
   getNextUrl(state) {
-    return state.next_url
+    return state.nextUrl
   }
 
 };
@@ -109,14 +109,14 @@ const actions = {
 const mutations = {
   setProducts(state, payload) {
     state.productList = payload.results;
-    state.next_url = payload.links.next;
-    state.prev_url = payload.links.previous;
+    state.nextUrl = payload.links.next;
+    state.prevUrl = payload.links.previous;
     state.count = payload.count;
-    state.num_pages = payload.pages;
-    state.currentPage = payload.current_page;
+    state.numPages = payload.pages;
+    state.currentPage = payload.currentPage;
     const links = [];
 
-    for (let i = 1; i < state.num_pages; i++) {
+    for (let i = 1; i < state.numPages; i++) {
       const link = `/products/?page=${i}`;
       links.push({pageNumber: i, link: link})
     }
@@ -128,11 +128,11 @@ const mutations = {
   },
   setPage(state, payload) {
     state.productList = payload.results;
-    state.next_url = payload.links.next;
-    state.prev_url = payload.links.previous;
+    state.nextUrl = payload.links.next;
+    state.prevUrl = payload.links.previous;
     state.count = payload.count;
-    state.num_pages = payload.pages;
-    state.current_page = payload.current_page;
+    state.numPages = payload.pages;
+    state.currentPage = payload.currentPage;
 
   }
 
