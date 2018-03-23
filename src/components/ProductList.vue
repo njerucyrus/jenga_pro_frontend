@@ -145,6 +145,7 @@
           prevUrl: 'getPreviousUrl',
           cartQuantityCount: 'getCartItemQuantityCount',
           cartCount: 'totalItems',
+          testCart: 'sales/getOrderDetails'
 
         }
       )

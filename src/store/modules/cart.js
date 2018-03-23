@@ -1,8 +1,7 @@
-
 const state = {
   cartItems: [],
   checkoutStatus: null,
-  cartProds: []
+
 };
 
 
@@ -12,35 +11,36 @@ const getters = {
 
     return state.cartItems.map(({id, quantity}) => {
       const product = rootState.products.productList.find(product => product.id === id)
-        return {
-         id:product.id,
-          name: product.product_name,
-          price: product.cost_per_unit,
-          img_url: product.img1,
-          quantity,
-          sub_total: product.cost_per_unit * quantity
-        }
+      return {
+        id: product.id,
+        name: product.product_name,
+        price: product.cost_per_unit,
+        unit_name: product.measuring_unit.unit_name,
+        img_url: product.img1,
+        quantity,
+        sub_total: product.cost_per_unit * quantity
+      }
 
     })
   },
 
-  totalItems(state){
+  totalItems(state) {
     return state.cartItems.length
   },
 
-  getCartItemQuantityCount: (state, getters) =>{
+  getCartItemQuantityCount: (state, getters) => {
     return getters.getCartItems.reduce((total, product) => {
-      return total +  product.quantity
+      return total + product.quantity
     }, 0)
   },
-
-
 
   getCartTotalPrice: (state, getters) => {
     return getters.getCartItems.reduce((total, product) => {
       return total + product.price * product.quantity
     }, 0)
   }
+
+
 };
 
 //actions
@@ -51,9 +51,9 @@ const actions = {
     if (!cartItem) {
       commit('pushProductToCart', {id: product.id, quantity: product.quantity})
     } else {
-      if (product.quantity > 1){
+      if (product.quantity > 1) {
         commit('incrementQtyWithMore', {item: cartItem, quantity: product.quantity})
-      }else {
+      } else {
         commit('incrementItemQuantity', cartItem)
       }
     }
@@ -67,7 +67,7 @@ const actions = {
 const mutations = {
   pushProductToCart(state, payload) {
     state.cartItems.push({
-        id:payload.id,
+      id: payload.id,
       quantity: payload.quantity
     })
   },
@@ -88,9 +88,9 @@ const mutations = {
     cartItem.quantity++
   },
 
-  incrementQtyWithMore(state, payload){
+  incrementQtyWithMore(state, payload) {
     const cartItem = state.cartItems.find(item => item.id === payload.item.id);
-    cartItem.quantity =parseInt(payload.quantity)
+    cartItem.quantity = parseInt(payload.quantity)
   }
 
 
