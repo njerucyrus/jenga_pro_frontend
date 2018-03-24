@@ -55,7 +55,7 @@
                     <span style="font-weight: bolder">Total: Ksh {{cartTotal}}.00</span>
                     <br>
                     <div style="margin-top: 10px">
-                    <button class="btn btn-fill">Checkout now</button>
+                    <button class="btn btn-fill" @click="checkout">Checkout now</button>
                     </div>
                   </div>
                 </td>
@@ -85,6 +85,7 @@
         totalItems: 'totalItems',
         cartQuantityCount: 'getCartItemQuantityCount',
         cartCount: 'totalItems',
+        orderDetails: 'getOrderDetails'
 
       })
       ,
@@ -94,6 +95,27 @@
         const confirm = window.confirm("Remove item from cart")
         if (confirm){
           this.$store.dispatch('removeFromCart', payload)
+        }
+      },
+
+      checkout() {
+        const confirm = window.confirm("Proceed to checkout ?")
+        if (confirm){
+         const  payload = {
+            order: {
+              order_id: "#949748KD14",
+              order_details: this.orderDetails,
+              total_cost: this.cartTotal,
+              ordered_by: 30,
+              is_paid: 0,
+            },
+            shipping: {
+              shipping_address: "Kahawa west 2",
+              phone_number: "12345",
+              email: "test@me.com"
+            }
+          }
+          this.$store.dispatch('checkout', payload);
         }
       }
 

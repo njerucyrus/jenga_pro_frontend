@@ -107,11 +107,12 @@ const actions = {
 
                 const message = "An error occurred while processing your checkout please try again later"
 
-                commit('setSuccessMsg', message)
+                commit('setError', message)
                 commit('setLoading', false)
-
+                commit('setCheckoutStatus', 'failed');
                 //Rollback the cart items incase there is error
                 commit('setCartItems', savedCartItems);
+
                 console.log("error ", response)
 
               }
@@ -121,8 +122,8 @@ const actions = {
               commit('setLoading', false)
 
               const message = "An error occurred while processing your checkout please try again later";
-              commit('setSuccessMsg', message);
-
+              commit('setError', message);
+              commit('setCheckoutStatus', 'failed');
               //Rollback the cart items incase there is error
               commit('setCartItems', {items: savedCartItems});
               console.log("error ", error);
