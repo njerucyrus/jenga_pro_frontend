@@ -47,7 +47,7 @@ const actions = {
 
           commit("setAuthToken", response.data.token);
           //fetch the user by username to be used to set the current user into the auth state
-          api.get(`/profiles/?username=${credentials.username}`)
+          api.get(`/profiles/query/?username=${credentials.username}`)
             .then(response => {
                 if (response.status === 200){
                   commit('setLoading', false);
@@ -82,6 +82,7 @@ const actions = {
   logout({commit}) {
     commit('setIsLoggedIn', false);
     commit('setAuthToken', null);
+    commit('setCurrentUser', {});
   }
 
 };

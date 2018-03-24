@@ -7,6 +7,7 @@ import ShoppingCart from '@/components/ShoppingCart'
 import JengaProLogin from '@/components/Login'
 import JengaProRegister from '@/components/Register'
 import JengaProCartDetailView from '@/components/CartDetailView'
+import JengaProCheckoutPage from '@/components/CheckoutPage'
 
 
 Vue.use(Router)
@@ -54,6 +55,13 @@ export default new Router({
       component: JengaProCartDetailView
     },
 
+    {
+      path: '/checkout',
+      name: 'CheckoutPage',
+      component: JengaProCheckoutPage
+    },
+
+
   ],
-   mode: 'history'
+
 })

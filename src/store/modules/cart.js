@@ -54,8 +54,17 @@ const getters = {
       details.push(detail)
     });
 
-    return details.join(', ');
+    return details.join(',');
+  },
+  getLoading(state){
+    return state.loading
+  },
+
+  getCheckoutStatus(state){
+    return state.checkoutStatus;
   }
+
+
 
 
 };
@@ -68,7 +77,7 @@ const actions = {
     if (!cartItem) {
       commit('pushProductToCart', {id: product.id, quantity: product.quantity})
     } else {
-      if (product.quantity > 1) {
+      if (product.quantity >= 1) {
         commit('incrementQtyWithMore', {item: cartItem, quantity: product.quantity})
       } else {
         commit('incrementItemQuantity', cartItem)
