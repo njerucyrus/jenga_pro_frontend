@@ -3,7 +3,6 @@
   <jenga-pro-main-header></jenga-pro-main-header>
 
   <div class="xt-product-subpage">
-    <link rel="stylesheet" href="static/css/style.css">
     <div class="container">
       <div class="row">
         <div class="col-md-9 col-md-push-3">

@@ -66,11 +66,11 @@
                 <flash-message></flash-message>
               </div>
               <ul class="nav navbar-nav navbar-right ep-mobile-menu" id="navbar-nav">
-                <li class="active" @click="reloadPage">
+                <li class="active">
                   <a href="">
                     <router-link to="/">Home</router-link>
                   </a></li>
-                <li @click="reloadPage">
+                <li>
                   <a href="#">
                     <router-link to="/products">Shop</router-link>
                   </a>
@@ -157,9 +157,7 @@
     },
 
     methods: {
-      reloadPage() {
-        window.location.reload()
-      },
+
       logout: function (e) {
         e.preventDefault()
        const confirm =  window.confirm("Are you sure you want to logout ?")

@@ -54,6 +54,6 @@ export default new Router({
       component: JengaProCartDetailView
     },
 
-
-  ]
+  ],
+   mode: 'history'
 })
