@@ -39,7 +39,7 @@
     </div>
 
     <div class="main-navigation">
-      <nav class="navbar navbar-fixed-top nav-scroll" style="background-color:rgba(134,143,72,0.18) !important;">
+      <nav class="navbar navbar-fixed-top nav-scroll">
         <div class="container">
           <div class="row">
             <div class="navbar-header">

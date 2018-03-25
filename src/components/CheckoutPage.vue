@@ -91,7 +91,7 @@
               </div>
 
             </tab-content>
-            <tab-content title="Payment" icon="ti-credit-card">
+            <tab-content title="Payment" icon="ti-money">
               <div class="col-md-12" v-if="!loading">
                 <flash-message></flash-message>
                 <h5>Make payment here</h5>

@@ -4,7 +4,7 @@
       <a href="#">All Category</a>
       <ul class="xt-dropdown">
         <li>
-          <a class="xt-nav-link" href="#"><i class="fa flaticon-menu"></i>Cement</a>
+          <a class="xt-nav-link" href="#"><i class="ti-angle-double-right"></i>Cement</a>
           <!--<ul class="mega-menu">-->
             <!--<li>-->
               <!--<ul class="xt-single-mega">-->
@@ -27,7 +27,7 @@
           <!--</ul>-->
         </li>
         <li>
-          <a class="xt-nav-link" href="#"><i class="fa flaticon-menu"></i>Sand</a>
+          <a class="xt-nav-link" href="#"><i class="ti-angle-double-right"></i>Sand</a>
           <!--<ul class="mega-menu">-->
             <!--<li>-->
               <!--<ul class="xt-single-mega">-->
@@ -49,7 +49,7 @@
             <!--</li>-->
           <!--</ul>-->
         </li>
-        <li><a href="#"><i class="fa flaticon-menu"></i>Ballast</a></li>
+        <li><a href="#"><i class="ti-angle-double-right"></i>Ballast</a></li>
         <!--<li>-->
           <!--<a class="xt-nav-link" href="#"><i class="fa flaticon-v-neck-shirt"></i>Ballast</a>-->
           <!--<ul class="mega-menu xt-column">-->
@@ -64,7 +64,7 @@
             <!--</li>-->
           <!--</ul>-->
         <!--</li>-->
-        <li><a href="#"><i class="fa flaticon-menu"></i> Building Stones</a></li>
+        <li><a href="#"><i class="ti-angle-double-right"></i> Building Stones</a></li>
         <!--<li>-->
           <!--<a class="xt-nav-link" href="#"><i class="fa flaticon-cosmetics"></i> COSMETICS</a>-->
           <!--<ul class="mega-menu xt-column">-->
@@ -79,7 +79,7 @@
           <!--</ul>-->
         <!--</li>-->
         <li>
-          <a class="xt-nav-link" href="#"><i class="fa flaticon-menu"></i>Handicles</a>
+          <a class="xt-nav-link" href="#"><i class="ti-angle-double-right"></i>Handicles</a>
           <!--<ul class="mega-menu xt-column">-->
             <!--<li>-->
               <!--<ul class="xt-single-mega">-->
@@ -92,7 +92,7 @@
           <!--</ul>-->
         </li>
         <li>
-          <a class="xt-nav-link" href="#"><i class="fa flaticon-menu"></i>Fired Bricks</a>
+          <a class="xt-nav-link" href="#"><i class="ti-angle-double-right"></i>Fired Bricks</a>
           <!--<ul class="mega-menu xt-column">-->
             <!--<li>-->
               <!--<ul class="xt-single-mega">-->
@@ -104,8 +104,8 @@
             <!--</li>-->
           <!--</ul>-->
         </li>
-        <li><a href="#"><i class="fa flaticon-menu"></i>Celamic Tiles</a></li>
-        <li><a href="#more-list"> <i class="fa flaticon-menu"></i> Roofing Materials</a></li>
+        <li><a href="#"><i class="ti-angle-double-right"></i>Celamic Tiles</a></li>
+        <li><a href="#more-list"> <i class="ti-angle-double-right"></i> Roofing Materials</a></li>
       </ul>
     </li>
   </ul>
