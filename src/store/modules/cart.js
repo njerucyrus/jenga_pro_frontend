@@ -50,11 +50,11 @@ const getters = {
     //the string representation is used to create the order details
     const details = [];
     getters.getCartItems.forEach(item => {
-      const detail = `${item.quantity } ${item.unit_name} of ${item.name} @ KSH ${item.price}\n`
+      const detail = `${item.quantity } ${item.unit_name} of ${item.name} @ KSH ${item.price}`
       details.push(detail)
     });
 
-    return details.join(',');
+    return details.join('\n');
   },
   getLoading(state){
     return state.loading
@@ -77,7 +77,7 @@ const actions = {
     if (!cartItem) {
       commit('pushProductToCart', {id: product.id, quantity: product.quantity})
     } else {
-      if (product.quantity >= 1) {
+      if (product.quantity > 1) {
         commit('incrementQtyWithMore', {item: cartItem, quantity: product.quantity})
       } else {
         commit('incrementItemQuantity', cartItem)
@@ -93,6 +93,7 @@ const actions = {
     commit('setLoading', true);
     commit('clearError');
     commit('clearSuccessMsg');
+    commit('clearCheckoutStatus');
     const savedCartItems = [...state.cartItems];
 
     api.post(`/orders/`, order)
@@ -189,6 +190,9 @@ const mutations = {
   },
   clearSuccessMsg(state) {
     state.successMsg = null
+  },
+  clearCheckoutStatus(state){
+    state.checkoutStatus = null
   }
 
 

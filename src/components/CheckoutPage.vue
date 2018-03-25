@@ -109,8 +109,6 @@
 </template>
 <script>
   import {mapGetters} from 'vuex'
-
-
   import JengaProLoginHeader from "./LoginHeader.vue";
   import JengaProCartDetailView from "./CartDetailView.vue";
   import * as VueFormGenerator from "vue-form-generator";
@@ -170,7 +168,6 @@
       }
     },
 
-
     computed: {
       ...mapGetters({
         cartItems: 'getCartItems',
@@ -187,7 +184,6 @@
     },
 
     methods: {
-
       validateFirstTab: function () {
         return this.$refs.firstTabForm.validate();
       },
@@ -208,6 +204,7 @@
             is_paid: 0,
           }
         };
+
         this.checkout(payload);
       },
 
@@ -230,13 +227,19 @@
             //show a flash message of success
             this.flash('Checkout completed successfully. We emailed you the invoice check your mail inbox',
               'success', {
-              timeout: 1000,
+               timeout: 3000,
                 important: true,
             });
+
+            const vm = this;
+            window.setTimeout(function () {
+              vm.$router.push('/')
+            }, 3000)
+
           }else if (newValue === 'failed'){
             this.flash('Checkout failed please try again',
-              'success', {
-                timeout: 1000,
+              'error', {
+                timeout: 3000,
                 important: true,
               });
 
