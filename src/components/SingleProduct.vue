@@ -84,7 +84,7 @@
                     Measuring Unit: {{ product.measuring_unit.unit_name }}
                   </div>
                   <div class="color-select" v-if="added">
-                    Current Quantity: {{ cartQuantityCount }}
+                    Current Quantity: {{ quantity }}
                   </div>
 
                   <div class="select-quantity">
@@ -151,9 +151,11 @@
           const cartProducts = JSON.parse(window.localStorage.getItem("vuex" || '[]')).cart.cartItems;
           //console.log(cartProducts)
           const record = cartProducts.find(p => p.id === product.id)
-          console.log(record);
-
           this.added = record;
+          if (record) {
+            this.quantity = record.quantity
+            console.log(record);
+          }
 
         }
       },

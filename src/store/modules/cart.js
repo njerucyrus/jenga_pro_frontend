@@ -33,6 +33,7 @@ const getters = {
     return state.cartItems.length
   },
 
+
   getCartItemQuantityCount: (state, getters) => {
     return getters.getCartItems.reduce((total, product) => {
       return total + product.quantity
@@ -77,9 +78,10 @@ const actions = {
     if (!cartItem) {
       commit('pushProductToCart', {id: product.id, quantity: product.quantity})
     } else {
-      if (product.quantity > 1) {
+      if (product.quantity > 1){
         commit('incrementQtyWithMore', {item: cartItem, quantity: product.quantity})
-      } else {
+      }
+      else {
         commit('incrementItemQuantity', cartItem)
       }
     }

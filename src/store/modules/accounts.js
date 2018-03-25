@@ -147,6 +147,7 @@ const mutations = {
     state.currentPage = payload.current_page;
     const links = [];
 
+
     for (let i = 1; i < state.numPages; i++) {
       const link = `/Users/?page=${i}`;
       links.push({pageNumber: i, link: link})

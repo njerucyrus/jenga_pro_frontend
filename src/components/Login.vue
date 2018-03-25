@@ -17,7 +17,7 @@
               <form class="form-group" @submit.prevent="validateForm">
                 <div class="form-group">
                   <label for="username" class="sr-only">Username</label>
-                  <input type="text" id="username" class="form-control" v-model="username" placeholder="Enter Email">
+                  <input type="text" id="username" class="form-control" v-model="username" placeholder="Enter Your Email or Username">
                 </div>
                 <div class="form-group">
                   <label for="password" class="sr-only">Password</label>
@@ -81,11 +81,11 @@
         if (!this.password) this.errors.push("Password cannot be blank")
       },
 
-      checkLoggedIn(){
-        if (this.isLoggedIn){
-          this.$router.push('/')
-        }
-      },
+//      checkLoggedIn(){
+//        if (this.isLoggedIn){
+//          this.$router.push('/')
+//        }
+//      },
 
       doLogin() {
         if (this.validateForm()) {
@@ -126,11 +126,6 @@
       }
 
     },
-
-    created() {
-      this.checkLoggedIn()
-
-    }
 
 
   }

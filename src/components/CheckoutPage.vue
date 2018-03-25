@@ -93,8 +93,62 @@
             </tab-content>
             <tab-content title="Payment" icon="ti-money">
               <div class="col-md-12" v-if="!loading">
-                <flash-message></flash-message>
-                <h5>Make payment here</h5>
+                 <flash-message></flash-message>
+                <h3 class="heading">Payment Methods</h3>
+                <div style="margin: 2px">
+                  <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a style="font-size: 32px;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="ti-mobile"></i> M-PESA</a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+
+                          <ul class="list-group">
+                            <li class="list-group-item list-group-item-info">1. Go to Mpesa on your phone</li>
+                            <li class="list-group-item list-group-item-info">2. Select Lipa Na Mpesa Paybill</li>
+                            <li class="list-group-item list-group-item-info">3. Enter Paybill Number 333333</li>
+                            <li class="list-group-item list-group-item-info">4. Enter Account Number 222 222 222</li>
+                            <li class="list-group-item list-group-item-info">5. Enter Amount</li>
+                            <li class="list-group-item list-group-item-info">6. Enter your pin and accept to complete transaction</li>
+                          </ul>
+                          <span style="font-weight: bolder">Or</span>
+                          <br>
+                          <span><button class="btn btn-success">Checkout Online</button></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a style="font-size: 32px;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="fa fa-bank"></i> Bank </a>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <ul class="list-group">
+                            <li class="list-group-item">Bank Payment Instruction</li>
+
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a style="font-size: 32px;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><i class="fa fa-money"></i> Cash On Delivery</a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <p class="list-group-item list-group-item-info">Click complete checkout</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="loader" v-if="loading"></div>
 

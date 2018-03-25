@@ -11,14 +11,13 @@
                      aria-expanded="false">English <span class="fa fa-angle-down"></span> </a>
                   <ul class="dropdown-menu xt-lang-dropdown">
                     <li><a href="">Kiswahili</a></li>
-
                   </ul>
                 </li>
                 <li class="dropdown">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                      aria-expanded="false">KSH <span class="fa fa-angle-down"></span> </a>
                   <ul class="dropdown-menu xt-lang-dropdown">
-                    <li><a href="#">USD</a></li>
+                    <li><a>USD</a></li>
 
                   </ul>
                 </li>
@@ -88,7 +87,7 @@
                   </ul>
                 </li>
                 <li><a href="">Blog</a></li>
-                <li><a href="contact-us.html">Contact</a></li>
+                <li><a href="#">Contact</a></li>
               </ul>
             </div>
           </div>

@@ -58,7 +58,8 @@ export default new Router({
     {
       path: '/checkout',
       name: 'CheckoutPage',
-      component: JengaProCheckoutPage
+      component: JengaProCheckoutPage,
+      meta: {requiresAuth: true}
     },
 
 
