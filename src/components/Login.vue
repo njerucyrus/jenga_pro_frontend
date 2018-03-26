@@ -5,8 +5,12 @@
       <div class="row" style="background: transparent">
         <div class="col-lg-8 col-md-8 col-xs-8 col-md-push-2">
           <div class="panel panel-info">
-            <h6 class="panel-heading" style="margin-top:0px;">Login Here</h6>
-            <div class="panel-body">
+            <h6 class="panel-heading" style="margin-top:0px;" v-if="!loading">Login Here</h6>
+            <h6 class="panel-heading" style="margin-top:0px; align-content: center;" v-if="loading">Authenticating...</h6>
+            <div class="panel-body" v-if="loading">
+              <div class="loader"></div>
+            </div>
+            <div class="panel-body" v-if="!loading">
               <div id="errors" v-if="errors">
                 <ul class="list-group">
                   <li class="list-group-item alert-danger" v-for="error in errors">{{error}}</li>
@@ -30,7 +34,7 @@
                 </div>
               </form>
             </div>
-            <div class="row">
+            <div class="row" v-if="!loading">
               <div class="container-fluid">
                 <div class="panel-footer">
                   <router-link :to="{name: 'Register'}">
@@ -66,7 +70,7 @@
 
     computed: {
       ...mapGetters({
-        isLoading: 'auth/getLoading',
+        loading: 'auth/getLoading',
         isLoggedIn: 'auth/getIsLoggedIn',
         error: 'auth/getError',
         successMsg: 'auth/getSuccessMsg'

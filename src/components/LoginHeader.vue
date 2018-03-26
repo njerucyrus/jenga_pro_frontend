@@ -27,10 +27,15 @@
 
           <div class="user-nav pull-right col-md-6 col-sm-6 col-xs-12">
             <ul>
-              <li v-if="cartItems">
+              <li v-if="totalItems > 0">
                 <router-link :to="{name: 'CartDetail'}">
                   <a href="">Checkout</a>
                 </router-link>
+              </li>
+              <li v-if="loggedIn">
+
+                  <a href="#" @click="logout">Logout</a>
+
               </li>
             </ul>
           </div>
@@ -99,17 +104,28 @@
 
     name: 'JengaProLoginHeader',
     methods: {
-      reloadPage(){
+      reloadPage() {
         window.location.reload()
+      },
+      logout: function (e) {
+        e.preventDefault()
+        const confirm = window.confirm("Are you sure you want to logout ?")
+        if (confirm) {
+          this.$store.dispatch('auth/logout')
+          this.flash("You are now logged out", 'info', {
+            timeout: 1000,
+          })
+          this.$router.push('/')
+        }
       }
     },
     computed: {
       ...mapGetters({
-        cartItems: 'getCartItems'
+        cartItems: 'getCartItems',
+        totalItems: 'getCartItemQuantityCount',
+        loggedIn: 'auth/getIsLoggedIn',
       })
-    }
-
-
+    },
 
   }
 </script>

@@ -3,7 +3,11 @@
     <jenga-pro-login-header></jenga-pro-login-header>
     <div class="container container-fluid" style="margin-top: 50px; margin-bottom: 50px;">
       <div class="row">
-        <div class="col-lg-8 col-md-8 col-xs-8 col-md-offset-2 ">
+        <div class="col-lg-8 col-md-8 col-xs-8 col-md-offset-2" v-if="loading">
+          <h4 class="panel-heading">Creating account ...</h4>
+          <div class="loader"></div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-xs-8 col-md-offset-2" v-if="!loading">
           <div class="panel panel-info">
             <h6 class="panel-heading" style="margin-top:0px;">Register Here</h6>
             <div class="panel-body">
@@ -15,7 +19,7 @@
                   <li v-if="errors" class="list-group-item alert-danger" v-for="error in errors">{{error}}</li>
                 </ul>
               </div>
-              <form @submit.prevent="validateForm">
+              <form @submit.prevent="validateForm" >
                 <div class="row">
                   <div class="col col-md-12">
                     <div class="col col-md-6">
@@ -82,7 +86,7 @@
             <div class="row">
               <div class="container-fluid">
                 <div class="panel-footer">
-                  <a href="#"> Already have an account ?</a>
+                  <a><router-link :to="{name: 'Login'}">Already have an account ?</router-link></a>
                 </div>
               </div>
             </div>
@@ -164,7 +168,7 @@
         const data = this.users.find(data => data.user.email === email);
         this.available = !data;
       },
-      successMsg(newVal, oldVal) {
+      successMsg(newVal) {
 
         if (newVal !== null) {
           this.flash(newVal, 'success', {
@@ -180,10 +184,10 @@
 
       },
 
-      error(newVal, oldVal) {
+      error(newVal) {
         if (newVal !== null) {
           this.flash(newVal, 'error', {
-            timeout: 3000,
+            timeout: 1000,
           });
 
         }
