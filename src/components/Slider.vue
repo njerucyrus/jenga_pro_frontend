@@ -7,7 +7,7 @@
           <div class="flexslider xt-slider-inner">
             <ul class="slides">
               <li>
-                <img src="static/images/model-five.jpg" alt="" />
+                <img src="/static/images/model-five.jpg" alt="" />
                 <div class="slide_text">
                   <span class="slide-category">Fashion</span>
                   <h2 class="slide_title">Spring Summer <br> Fashion Collection</h2>
@@ -18,7 +18,7 @@
                 </div>
               </li>
               <li>
-                <img src="static/images/model-four.jpg" alt="" />
+                <img src="/static/images/model-four.jpg" alt="" />
                 <div class="slide_text">
                   <span class="slide-category">Style</span>
                   <h2 class="slide_title ">Winter Autumn <br> Jacket Collection</h2>
@@ -29,7 +29,7 @@
                 </div>
               </li>
               <li>
-                <img src="static/images/model-three.jpg" alt="" />
+                <img src="/static/images/model-three.jpg" alt="" />
                 <div class="slide_text">
                   <span class="slide-category">Spring Collection</span>
                   <h2 class="slide_title ">Spring Upcomming <br> New Collection</h2>
@@ -44,7 +44,7 @@
           <div class="flexslider-controls">
             <ol class="flex-control-nav">
               <li>
-                <img src="static/images/model-five-thumb.jpg" alt="" />
+                <img src="/static/images/model-five-thumb.jpg" alt="" />
                 <div class="nav-title">
                   <span>Fashion</span>
                   <h3>Spring Summer Fashion Collection</h3>
@@ -52,7 +52,7 @@
 
               </li>
               <li>
-                <img src="static/images/model-four-thumb.jpg" alt="" />
+                <img src="/static/images/model-four-thumb.jpg" alt="" />
                 <div class="nav-title">
                   <span>Style</span>
                   <h3>Winter Autumn Jacket COllection</h3>
@@ -60,7 +60,7 @@
 
               </li>
               <li>
-                <img src="static/images/model-three-thumb.jpg" alt="" />
+                <img src="/static/images/model-three-thumb.jpg" alt="" />
                 <div class="nav-title">
                   <span>Spring</span>
                   <h3>Spring New Collection 2018</h3>

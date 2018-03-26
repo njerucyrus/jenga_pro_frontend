@@ -28,7 +28,7 @@
                   <div>
                     <img :src="item.img_url" class="thumbnail" v-if="item.img_url" height="100" width="100"
                          alt="Jenga Pro Cart Image">
-                    <img src="static/images/no_image.png" class="thumbnail" height="100" width="100"
+                    <img src="/static/images/no_image.png" class="thumbnail" height="100" width="100"
                          v-else="!item.img_url" alt="Jenga Pro Cart Image">
                     <span>{{item.name}}</span>
                   </div>

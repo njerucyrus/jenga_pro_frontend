@@ -10,7 +10,7 @@
           <li v-for="product in cartItems">
             <a>
               <img :src="product.img_url" v-if="product.img_url" alt="Jenga Pro Cart Image">
-              <img src="static/images/no_image.png" v-else="!product.img_url" alt="Jenga Pro Cart Image">
+              <img src="/static/images/no_image.png" v-else="!product.img_url" alt="Jenga Pro Cart Image">
               <h3>{{product.name}}</h3>
               <span class="cart-price">Ksh {{product.price}} ||<span>Qty {{ product.quantity }}</span></span>
               <br>
@@ -20,13 +20,13 @@
           </li>
 
 
-          <li>
+          <li v-if="totalItems > 0">
             <a href="#" class="subtotal top-checkout">
               <h3>TOTAL COST </h3>
               <span class="total-price">Ksh {{ cartTotal }} </span>
             </a>
           </li>
-          <li>
+          <li v-if="totalItems > 0">
             <a href="#" class="process top-checkout" @click="goToCartDetail">
 
               <h3>Proceed to Checkout</h3>

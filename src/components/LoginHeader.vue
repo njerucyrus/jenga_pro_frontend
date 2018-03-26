@@ -46,7 +46,7 @@
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span aria-hidden="true" class="icon"></span>
               </button>
-              <a class="navbar-brand" href="#"><img src="static/images/flogo.png" alt=""
+              <a class="navbar-brand" href="#"><img src="/static/images/flogo.png" alt=""
                                                              class="img-responsive"></a>
             </div>
 
@@ -63,7 +63,11 @@
                     <router-link to="/products">Shop</router-link>
                   </a>
                 </li>
-                <li><a href="">About</a></li>
+                <li>
+                  <a>
+                    <router-link :to="{name: 'About'}">About</router-link>
+                  </a>
+                </li>
                 <li class="dropdown xt-drop-nav">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                     Services <span class="caret"></span>
@@ -76,7 +80,11 @@
                   </ul>
                 </li>
                 <li><a href="">Blog</a></li>
-                <li><a href="#">Contact</a></li>
+                <li>
+                  <a>
+                    <router-link :to="{name: 'Contact'}">Contact</router-link>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

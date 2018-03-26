@@ -45,13 +45,13 @@
         <div class="row">
           <div class="col-md-3 col-sm-3">
             <div class="footer-widget footer-contact">
-              <img src="static/images/flogo.png" alt="" class="img-responsive">
+              <img src="/static/images/flogo.png" alt="" class="img-responsive">
               <ul>
-                <li><i class="fa fa-mobile-phone"></i><a href="">+(1234) 456 7896</a></li>
-                <li><i class="fa fa-envelope-o"></i><a href="">info@xootheme.com</a></li>
+                <li><i class="fa fa-mobile-phone"></i><a href="">+254723862137</a></li>
+                <li><i class="fa fa-envelope-o"></i><a href="">info@jengapro.com</a></li>
                 <li>
                   <i class="fa fa-location-arrow"></i>
-                  <address>Address: 42/1, dariapara road, New york city, New york. USA</address>
+                  <address>Thika road, Nairobi</address>
                 </li>
               </ul>
             </div>
@@ -61,7 +61,11 @@
               <h4>My account</h4>
               <ul>
                 <li><a href=""><i class="fa fa-caret-right"></i>My account</a></li>
-                <li><a href=""><i class="fa fa-caret-right"></i>about us</a></li>
+                <li><a><i class="fa fa-caret-right"></i>
+                  <router-link :to="{path: '/about'}">
+                     about us
+                  </router-link>
+                </a></li>
                 <li><a href=""><i class="fa fa-caret-right"></i>Shopping cart</a></li>
                 <li><a href=""><i class="fa fa-caret-right"></i>Checkout</a></li>
               </ul>
@@ -106,7 +110,7 @@
                 </div>
                 <div class="col-md-10">
                   <h4>Safe Payment</h4>
-                  <p>Pay with the world’s most popular and secure
+                  <p>Pay with the Kenya's most popular and secure
                     payment methods.</p>
                 </div>
               </div>
@@ -119,9 +123,8 @@
                   <i class="fa flaticon-shipped"></i>
                 </div>
                 <div class="col-md-10">
-                  <h4>Worldwide delivery</h4>
-                  <p>With sites in 5 languages, we shop to over 100
-                    countries and regions.</p>
+                  <h4>Countrywide delivery</h4>
+                  <p>No need to worry about delivery of your products.We delivery products to your desired location anywhere in Kenya</p>
                 </div>
               </div>
             </div>
@@ -147,10 +150,10 @@
       <div class="container">
         <div class="row section-separator">
           <div class="col-md-6 col-sm-6">
-            <p>Free Bootstrap eCommerce Template by <a href="https://xoothemes.com/" target="_blank">XooThemes</a>.</p>
+            <p>Developed by <a href="http://hudutech.com/" target="_blank">Hudutech Solutions</a>.</p>
           </div>
           <div class="col-md-6 col-sm-6">
-            <img src="static/images/payment.png" alt="" class="img-responsive">
+            <img src="/static/images/payment.png" alt="" class="img-responsive">
           </div>
         </div>
       </div>

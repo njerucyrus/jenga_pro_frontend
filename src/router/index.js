@@ -8,11 +8,14 @@ import JengaProLogin from '@/components/Login'
 import JengaProRegister from '@/components/Register'
 import JengaProCartDetailView from '@/components/CartDetailView'
 import JengaProCheckoutPage from '@/components/CheckoutPage'
+import JengaProAbout from '@/components/About'
+import JengaProContact from '@/components/Contact'
 
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -62,6 +65,19 @@ export default new Router({
       meta: {requiresAuth: true}
     },
 
+    {
+      path: '/about',
+      name: 'About',
+      component: JengaProAbout,
+
+    },
+
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: JengaProContact,
+
+    },
 
   ],
 

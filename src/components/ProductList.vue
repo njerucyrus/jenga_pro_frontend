@@ -56,7 +56,7 @@
                     <div class="product-img" >
                       <router-link :to="{name:'SingleProduct', params:{id: product.id} }">
                       <img v-if="product.img1" :src="product.img1" alt="" height="250" width="358" @click="reloadPage">
-                        <img v-else="!product.img1" src="static/images/no_image.png" alt="" height="120" width="220">
+                        <img v-else="!product.img1" src="/static/images/no_image.png" alt="" height="120" width="220">
                       </router-link>
                       <span class="product-tag xt-uppercase">sale!</span>
                     </div>

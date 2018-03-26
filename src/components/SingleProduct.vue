@@ -14,21 +14,21 @@
                     <div role="tabpanel" id="xt-pro-1" class="tab-pane fade">
                       <a class="grouped_elements" data-fancybox="gallery" href="">
                         <img :src="product.img2" v-if="product.img2" alt="product thumbs">
-                        <img src="static/images/no_image.png" v-else="!product.img2" alt="product thumbs">
+                        <img src="/static/images/no_image.png" v-else="!product.img2" alt="product thumbs">
                       </a>
                     </div>
                     <div role="tabpanel" id="xt-pro-2" class="tab-pane fade">
-                      <a class="grouped_elements" data-fancybox="gallery" href="static/images/s-2.jpg">
+                      <a class="grouped_elements" data-fancybox="gallery" href="/static/images/s-2.jpg">
                         <a href="#xt-pro-4" role="tab" data-toggle="tab" aria-expanded="false">
                           <img :src="product.img3" v-if="product.img3" alt="product thumbs">
-                          <img src="static/images/no_image.png" v-else="!product.img3" alt="product thumbs">
+                          <img src="/static/images/no_image.png" v-else="!product.img3" alt="product thumbs">
                         </a>
                       </a>
                     </div>
                     <div role="tabpanel" id="xt-pro-3" class="tab-pane fade active in">
-                      <a class="grouped_elements" data-fancybox="gallery" href="static/images/s-3.jpg">
+                      <a class="grouped_elements" data-fancybox="gallery" href="/static/images/s-3.jpg">
                         <img :src="product.img1" v-if="product.img1" alt="product thumbs" height="350" width="300">
-                        <img src="static/images/no_image.png" v-else="!product.img4" height="350" width="300"
+                        <img src="/static/images/no_image.png" v-else="!product.img4" height="350" width="300"
                              alt="product thumbs">
                       </a>
                     </div>
@@ -36,7 +36,7 @@
                       <a class="grouped_elements" data-fancybox="product.img5" href="product.img5">
 
                         <img :src="product.img5" v-if="product.img5" alt="product thumbs">
-                        <img src="static/images/no_image.png" v-else="!product.img5" alt="product thumbs">
+                        <img src="/static/images/no_image.png" v-else="!product.img5" alt="product thumbs">
                       </a>
                     </div>
                   </div>
@@ -46,7 +46,7 @@
                       <a href="#xt-pro-1" role="tab" data-toggle="tab" aria-expanded="false">
                         <a href="#xt-pro-4" role="tab" data-toggle="tab" aria-expanded="false">
                           <img :src="product.img2" v-if="product.img2" alt="product thumbs">
-                          <img src="static/images/no_image.png" v-else="!product.img2" alt="product thumbs">
+                          <img src="/static/images/no_image.png" v-else="!product.img2" alt="product thumbs">
                         </a>
                       </a>
                     </li>
@@ -54,7 +54,7 @@
                       <a href="#xt-pro-2" role="tab" data-toggle="tab" aria-expanded="false">
                         <a href="#xt-pro-4" role="tab" data-toggle="tab" aria-expanded="false">
                           <img :src="product.img3" v-if="product.img3" alt="product thumbs">
-                          <img src="static/images/no_image.png" v-else="!product.img3" alt="product thumbs">
+                          <img src="/static/images/no_image.png" v-else="!product.img3" alt="product thumbs">
                         </a>
                       </a>
                     </li>
@@ -62,14 +62,14 @@
                       <a href="#xt-pro-3" role="tab" data-toggle="tab" aria-expanded="true">
 
                         <img :src="product.img4" v-if="product.img4" alt="product thumbs">
-                        <img src="static/images/no_image.png" v-else="!product.img4" alt="product thumbs">
+                        <img src="/static/images/no_image.png" v-else="!product.img4" alt="product thumbs">
 
                       </a>
                     </li>
                     <li role="presentation" class="active">
                       <a href="#xt-pro-4" role="tab" data-toggle="tab" aria-expanded="false">
                         <img :src="product.img5" v-if="product.img5" alt="product thumbs">
-                        <img src="static/images/no_image.png" v-else="!product.img5" alt="product thumbs">
+                        <img src="/static/images/no_image.png" v-else="!product.img5" alt="product thumbs">
                       </a>
                     </li>
                   </ul>

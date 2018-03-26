@@ -16,41 +16,88 @@
   <link rel="stylesheet" href="https://rawgit.com/lykmapipo/themify-icons/master/css/themify-icons.css"/>
 
   <!-- FAV AND ICONS   -->
-  <link rel="shortcut icon" href="static/images/favicon.ico">
-  <link rel="shortcut icon" href="static/images/apple-icon.png">
-  <link rel="shortcut icon" sizes="72x72" href="static/images/apple-icon-72x72.png">
-  <link rel="shortcut icon" sizes="114x114" href="static/images/apple-icon-114x114.png">
+  <link rel="shortcut icon" href="/static/images/favicon.ico">
+  <link rel="shortcut icon" href="/static/images/apple-icon.png">
+  <link rel="shortcut icon" sizes="72x72" href="/static/images/apple-icon-72x72.png">
+  <link rel="shortcut icon" sizes="114x114" href="/static/images/apple-icon-114x114.png">
+
+  <style>
+    .loader,
+    .loader:after {
+      border-radius: 50%;
+      width: 10em;
+      height: 10em;
+    }
+
+    .loader {
+      margin: 60px auto;
+      font-size: 10px;
+      position: relative;
+      text-indent: -9999em;
+      border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+      border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+      border-left: 1.1em solid #e74c3c;
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-animation: load8 1.1s infinite linear;
+      animation: load8 1.1s infinite linear;
+    }
+
+    @-webkit-keyframes load8 {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes load8 {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7cPlayfair+Display:400,400i,700,900" rel="stylesheet">
 
   <!-- FONT ICONS -->
-  <link rel="stylesheet" href="static/icons/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/icons/font-awesome-4.7.0/css/font-awesome.min.css">
 
   <!-- Custom Icon Font -->
-  <link rel="stylesheet" href="static/fonts/flaticon.css">
+  <link rel="stylesheet" href="/static/fonts/flaticon.css">
   <!-- Bootstrap-->
-  <link rel="stylesheet" href="static/plugins/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/plugins/css/bootstrap.min.css">
   <!-- Fancybox-->
-  <link rel="stylesheet" href="static/plugins/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/static/plugins/css/jquery.fancybox.min.css">
   <!-- Animation -->
-  <link rel="stylesheet" href="static/plugins/css/animate.css">
+  <link rel="stylesheet" href="/static/plugins/css/animate.css">
   <!-- owl -->
-  <link rel="stylesheet" href="static/plugins/css/owl.css">
+  <link rel="stylesheet" href="/static/plugins/css/owl.css">
   <!--flexslider-->
-  <link rel="stylesheet" href="static/plugins/css/flexslider.min.css">
+  <link rel="stylesheet" href="/static/plugins/css/flexslider.min.css">
   <!-- selectize -->
-  <link rel="stylesheet" href="static/plugins/css/selectize.css">
-  <link rel="stylesheet" href="static/plugins/css/selectize.bootstrap3.css">
-  <link rel="stylesheet" href="static/plugins/css/jquery-ui.min.css">
+  <link rel="stylesheet" href="/static/plugins/css/selectize.css">
+  <link rel="stylesheet" href="/static/plugins/css/selectize.bootstrap3.css">
+  <link rel="stylesheet" href="/static/plugins/css/jquery-ui.min.css">
   <!--dropdown -->
-  <link rel="stylesheet" href="static/plugins/css/bootstrap-dropdownhover.min.css">
+  <link rel="stylesheet" href="/static/plugins/css/bootstrap-dropdownhover.min.css">
   <!-- mobile nav-->
-  <link rel="stylesheet" href="static/plugins/css/meanmenu.css">
+  <link rel="stylesheet" href="/static/plugins/css/meanmenu.css">
 
   <!-- COUSTOM CSS link  -->
-  <link rel="stylesheet" href="static/css/style.css">
-  <link rel="stylesheet" href="static/css/responsive.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/responsive.css">
 
   <!--[if lt IE 9]>
   <script src="js/plagin-js/html5shiv.js"></script>
@@ -58,8 +105,8 @@
   <![endif]-->
 
 
-  <link rel="shortcut icon" sizes="72x72" href="static/images/apple-icon-72x72.png">
-  <link rel="shortcut icon" sizes="114x114" href="static/images/apple-icon-114x114.png">
+  <link rel="shortcut icon" sizes="72x72" href="/static/images/apple-icon-72x72.png">
+  <link rel="shortcut icon" sizes="114x114" href="/static/images/apple-icon-114x114.png">
 
 
 
@@ -100,32 +147,32 @@
 |========================
 -->
 <!-- jquery -->
-<script src="static/plugins/js/jquery-1.11.3.min.js"></script>
+<script src="/static/plugins/js/jquery-1.11.3.min.js"></script>
 <!-- Bootstrap -->
-<script src="static/plugins/js/bootstrap.min.js"></script>
+<script src="/static/plugins/js/bootstrap.min.js"></script>
 <!-- mean menu nav-->
-<script src="static/plugins/js/meanmenu.js"></script>
+<script src="/static/plugins/js/meanmenu.js"></script>
 <!-- ajaxchimp -->
-<script src="static/plugins/js/jquery.ajaxchimp.min.js"></script>
+<script src="/static/plugins/js/jquery.ajaxchimp.min.js"></script>
 <!-- wow -->
-<script src="static/plugins/js/wow.min.js"></script>
+<script src="/static/plugins/js/wow.min.js"></script>
 <!-- Owl carousel-->
-<script src="static/plugins/js/owl.carousel.js"></script>
+<script src="/static/plugins/js/owl.carousel.js"></script>
 <!--flexslider-->
-<script src="static/plugins/js/jquery.flexslider-min.js"></script>
+<script src="/static/plugins/js/jquery.flexslider-min.js"></script>
 <!--dropdownhover-->
-<script src="static/plugins/js/bootstrap-dropdownhover.min.js"></script>
+<script src="/static/plugins/js/bootstrap-dropdownhover.min.js"></script>
 <!--jquery-ui.min-->
-<script src="static/plugins/js/jquery-ui.min.js"></script>
+<script src="/static/plugins/js/jquery-ui.min.js"></script>
 <!--validator -->
-<script src="static/plugins/js/validator.min.js"></script>
+<script src="/static/plugins/js/validator.min.js"></script>
 <!--smooth scroll-->
-<script src="static/plugins/js/smooth-scroll.js"></script>
+<script src="/static/plugins/js/smooth-scroll.js"></script>
 <!-- Fancybox js-->
-<script src="static/plugins/js/jquery.fancybox.min.js"></script>
+<script src="/static/plugins/js/jquery.fancybox.min.js"></script>
 <!-- SELECTIZE-->
-<script src="static/plugins/js/standalone/selectize.js"></script>
+<script src="/static/plugins/js/standalone/selectize.js"></script>
 <!-- init -->
-<script src="static/js/init.js"></script>
+<script src="/static/js/init.js"></script>
 </body>
 </html>
