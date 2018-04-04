@@ -114,7 +114,9 @@
 
           const vm = this;
           window.setTimeout(function () {
-            vm.$router.push('/')
+
+              vm.$router.push('/')
+
           }, 1000)
         }
 

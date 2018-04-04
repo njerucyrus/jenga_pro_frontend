@@ -5,7 +5,8 @@ const state = {
   checkoutStatus: null,
   loading: false,
   successMsg: null,
-  error: null
+  error: null,
+  operatingRegions: []
 
 };
 
@@ -57,15 +58,17 @@ const getters = {
 
     return details.join('\n');
   },
-  getLoading(state){
+  getLoading(state) {
     return state.loading
   },
 
-  getCheckoutStatus(state){
+  getCheckoutStatus: (state) =>{
     return state.checkoutStatus;
+  },
+
+  getOperatingRegions: (state) =>{
+    return state.operatingRegions
   }
-
-
 
 
 };
@@ -78,8 +81,9 @@ const actions = {
     if (!cartItem) {
       commit('pushProductToCart', {id: product.id, quantity: product.quantity})
     } else {
-      if (product.quantity > 1){
-        commit('incrementQtyWithMore', {item: cartItem, quantity: product.quantity})
+      if (product.quantity > 1) {
+        let payload = {item: cartItem, quantity: product.quantity};
+        commit('incrementQtyWithMore', payload)
       }
       else {
         commit('incrementItemQuantity', cartItem)
@@ -142,6 +146,19 @@ const actions = {
             })
         }
       })
+  },
+
+  //get the location operating in
+  fetchOperationalRegions({commit}) {
+    api.get(`/regions/query/?active=1`)
+      .then(response => {
+        if (response.status === 200) {
+          commit('setOperationalRegions', response.data)
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      });
   }
 };
 
@@ -193,8 +210,12 @@ const mutations = {
   clearSuccessMsg(state) {
     state.successMsg = null
   },
-  clearCheckoutStatus(state){
+  clearCheckoutStatus(state) {
     state.checkoutStatus = null
+  },
+
+  setOperationalRegions(state, {results}){
+    state.operatingRegions = results
   }
 
 
