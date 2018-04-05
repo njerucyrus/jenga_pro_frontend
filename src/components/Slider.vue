@@ -1,5 +1,5 @@
-<template class="xt-slider">
-  <section>
+<template >
+  <section class="xt-slider">
     <div class="container">
       <div class="row">
         <div class="col-md-3 category-hidden padding-right-o"></div>

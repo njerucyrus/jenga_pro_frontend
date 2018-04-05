@@ -59,18 +59,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row" style="margin-top: 5px;">
-                  <div class="col col-md-12">
-                    <div class="col-md-12">
-                      <select v-model="accountType" class="form-control">
-                        <option value="customer">Select Account Type</option>
-                        <option value="Customer">Customer</option>
-                        <option value="Foreman">Foreman</option>
-                      </select>
 
-                    </div>
-                  </div>
-                </div>
 
                 <div class="row" style="margin-top: 15px;">
                   <div class="col-md-12">
@@ -114,7 +103,7 @@
         phoneNumber: '',
         password: '',
         confirmPassword: '',
-        accountType: 'Customer',
+        accountType: 'customer',
         available: true,
         errors: [],
 

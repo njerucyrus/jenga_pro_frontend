@@ -1,53 +1,5 @@
 <template>
   <header id="xt-home" class="xt-header">
-    <div class="header-top">
-      <div class="container">
-        <div class="row">
-          <div class="xt-language col-md-6 col-sm-6 col-xs-12">
-            <div class="each-nav">
-              <ul>
-                <li class="dropdown">
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                     aria-expanded="false">English <span class="fa fa-angle-down"></span> </a>
-                  <ul class="dropdown-menu xt-lang-dropdown">
-                    <li><a href="">Kiswahili</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                     aria-expanded="false">KSH <span class="fa fa-angle-down"></span> </a>
-                  <ul class="dropdown-menu xt-lang-dropdown">
-                    <li><a>USD</a></li>
-
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="user-nav pull-right col-md-6 col-sm-6 col-xs-12">
-            <ul>
-              <li v-if="cartItems">
-                <router-link :to="{name: 'CartDetail'}">
-                <a href="">Checkout</a>
-                </router-link>
-              </li>
-              <li>
-              <li v-if="!isLoggedIn && token===null ">
-                <router-link :to="{name:'Login'}">
-                  <a href="">login</a>
-                </router-link>
-              </li>
-              <li v-if="isLoggedIn && token!==null">
-                <a href="#"  @click="logout">Logout</a>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-navigation">
       <nav class="navbar navbar-fixed-top nav-scroll">
         <div class="container">

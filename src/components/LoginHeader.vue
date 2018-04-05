@@ -1,48 +1,5 @@
 <template>
   <header id="xt-home" class="xt-header">
-    <div class="header-top">
-      <div class="container">
-        <div class="row">
-          <div class="xt-language col-md-6 col-sm-6 col-xs-12">
-            <div class="each-nav">
-              <ul>
-                <li class="dropdown">
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                     aria-expanded="false">English <span class="fa fa-angle-down"></span> </a>
-                  <ul class="dropdown-menu xt-lang-dropdown">
-                    <li><a href="#">Kiswahili</a></li>
-
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                     aria-expanded="false">KSH<span class="fa fa-angle-down"></span> </a>
-                  <ul class="dropdown-menu xt-lang-dropdown">
-                    <li><a href="#">USD</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="user-nav pull-right col-md-6 col-sm-6 col-xs-12">
-            <ul>
-              <li v-if="totalItems > 0">
-                <router-link :to="{name: 'CartDetail'}">
-                  <a href="">Checkout</a>
-                </router-link>
-              </li>
-              <li v-if="loggedIn">
-
-                  <a href="#" @click="logout">Logout</a>
-
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-navigation">
       <nav class="navbar navbar-fixed-top nav-scroll">
         <div class="container">
@@ -73,22 +30,24 @@
                     <router-link :to="{name: 'About'}">About</router-link>
                   </a>
                 </li>
-                <li class="dropdown xt-drop-nav">
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                    Services <span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Find Professionals</a></li>
-                    <li><a href="#">Request Service</a></li>
-                    <li><a href="#">Get A Building Plan</a></li>
-                    <li><a href="#">Order Utility Services</a></li>
-                  </ul>
-                </li>
-                <li><a href="">Blog</a></li>
                 <li>
                   <a>
-                    <router-link :to="{name: 'Contact'}">Contact</router-link>
+                    <router-link :to="{name: 'Login'}">Login</router-link>
                   </a>
+                </li>
+                <li>
+
+                    <router-link :to="{name: 'Register'}">
+                      <a> Sign Up</a>
+                    </router-link>
+
+                </li>
+                <li>
+
+                    <router-link :to="{path:'/'}">
+                      <a class="btn btn-fill" style="padding: 2px;margin-bottom: 2px;"> Are you a professional?</a>
+                    </router-link>
+
                 </li>
               </ul>
             </div>

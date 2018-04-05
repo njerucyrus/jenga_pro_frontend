@@ -1,11 +1,11 @@
 import api from '../api'
 
 const state = {
-  users: [],
+  professionals: [],
   /*pagination attr*/
   pages: [],
   count: 0,
-  current_page: 1,
+  currentPage: 1,
   numPages: 0,
   nextUrl: '',
   prevUrl: '',
@@ -17,8 +17,8 @@ const state = {
 };
 
 const getters = {
-  getUsers(state) {
-    return state.users
+  getProfessionals(state) {
+    return state.professionals
   },
   /*pagination getters*/
   getPages(state) {
@@ -55,12 +55,12 @@ const getters = {
 };
 
 const actions = {
-  fetchUsers({commit}) {
+  fetchProfessionals({commit}) {
     //use profile endpoint to get more detailed object for the user.
-    api.get(`/profiles/`)
+    api.get(`/professionals/`)
       .then(response => {
-        commit('setUsers', response.data)
-        console.log("user ", response.data.results)
+        commit('setProfessionals', response.data)
+        console.log("professionals ", response.data.results)
       })
       .catch(error => {
         console.log(error)
@@ -138,8 +138,8 @@ const actions = {
 };
 
 const mutations = {
-  setUsers(state, payload) {
-    state.users = payload.results;
+  setProfessionals(state, payload) {
+    state.professionals = payload.results;
     state.nextUrl = payload.links.next;
     state.prevUrl = payload.links.previous;
     state.count = payload.count;
@@ -149,7 +149,7 @@ const mutations = {
 
 
     for (let i = 1; i < state.numPages; i++) {
-      const link = `/Users/?page=${i}`;
+      const link = `/professionals/?page=${i}`;
       links.push({pageNumber: i, link: link})
     }
     state.pages = links;
@@ -157,12 +157,12 @@ const mutations = {
   },
 
   setPage(state, payload) {
-    state.users = payload.results;
+    state.professionals = payload.results;
     state.nextUrl = payload.links.next;
     state.prevUrl = payload.links.previous;
     state.count = payload.count;
     state.numPages = payload.pages;
-    state.current_page = payload.current_page;
+    state.currentPage = payload.current_page;
 
   },
   setLoading(state, payload){
