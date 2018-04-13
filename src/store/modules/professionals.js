@@ -1,7 +1,9 @@
-import api from '../api'
+import api from './../api';
 
 const state = {
+  isSearching: false,
   professionals: [],
+  searchResults: [],
   /*pagination attr*/
   pages: [],
   count: 0,
@@ -13,17 +15,22 @@ const state = {
   loading: false,
   error: null,
   successMsg: null,
-
 };
 
 const getters = {
-  getProfessionals(state) {
-    return state.professionals
+  getSearchResults(state){
+    return state.searchResults
   },
+
   /*pagination getters*/
   getPages(state) {
     return state.pages
   },
+
+  getCount(state){
+    return state.count
+  },
+
   getPageCount(state) {
     return state.numPages
   },
@@ -51,21 +58,13 @@ const getters = {
   getSuccessMsg(state){
     return state.successMsg
   },
+  getIsSearching(state){
+    return state.isSearching
+  }
 
 };
 
 const actions = {
-  fetchProfessionals({commit}) {
-    //use profile endpoint to get more detailed object for the user.
-    api.get(`/professionals/`)
-      .then(response => {
-        commit('setProfessionals', response.data)
-        console.log("professionals ", response.data.results)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  },
 
   //pagination actions
   fetchPage(context, link) {
@@ -73,13 +72,15 @@ const actions = {
     api.get(link)
       .then(response => {
         context.commit('setPage', response.data);
-        console.log(response.data)
+        console.log("page data, ", response.data)
       })
       .catch(error => {
         console.log(error)
       })
 
   },
+
+
 
   fetchNextPage(context, nextURL) {
     api.get(nextURL)
@@ -104,40 +105,62 @@ const actions = {
   },
   //end pagination action
 
-  createAccount({commit}, payload) {
-    console.log("account payload ",payload)
+  searchProfessionals({commit}, {query, category}){
     commit('setLoading', true);
-    commit('clearError');
-    commit('clearSuccessMsg');
-    api.post(`/users/`, payload)
-      .then(response => {
-        if (response.status === 201) {
-          commit('setLoading', false)
-          const message = "Account created Successfully. Redirecting to Login page...";
-          commit('setSuccessMsg', message)
-          console.log("res created " ,response )
+    commit('isSearching', true);
+    api.get(`/professionals/query/?q=${query}&category=${category}`)
+      .then(res => {
 
-        } else {
-
-          let message = "An error occurred while creating your account please try again later"
-          commit('setError', message);
-          commit('setLoading', false);
-          console.log("ACC_ERR0", response.data.username)
-        }
-      })
-      .catch(error => {
-        let message = "An error occurred while creating your account please try again later"
-        commit('setError', message);
+        console.log("Search results ", res.data.results);
+        commit('setSearchResults', res.data)
         commit('setLoading', false);
-        console.log("ACC_ERR1", error.message)
+        commit('isSearching', false);
       })
+      .catch(err => {
+        commit('setLoading', false);
+        commit('isSearching', false);
+        console.log(err)
+      })
+  },
 
+  filterByCategory({commit}, {query, category}) {
+    commit('setLoading', true);
+
+    api.get(`/professionals/query/?q=${query}&category=${category}`)
+      .then(res => {
+        console.log("Filter Search results ", res.data.results);
+        commit('setProfessionals', res.data);
+        commit('setLoading', false);
+      })
+      .catch(err => {
+        commit('setLoading', false);
+
+        console.log(err);
+      })
   },
 
 
 };
 
 const mutations = {
+  setSearchResults(state, payload) {
+    state.searchResults = payload.results;
+    state.nextUrl = payload.links.next;
+    state.prevUrl = payload.links.previous;
+    state.count = payload.count;
+    state.numPages = payload.pages;
+    state.currentPage = payload.current_page;
+    const links = [];
+
+
+    for (let i = 1; i < state.numPages; i++) {
+      const link = `/professionals/query/?page=${i}`;
+      links.push({pageNumber: i, link: link})
+    }
+    state.pages = links;
+
+  },
+
   setProfessionals(state, payload) {
     state.professionals = payload.results;
     state.nextUrl = payload.links.next;
@@ -157,7 +180,7 @@ const mutations = {
   },
 
   setPage(state, payload) {
-    state.professionals = payload.results;
+    state.searchResults = payload.results
     state.nextUrl = payload.links.next;
     state.prevUrl = payload.links.previous;
     state.count = payload.count;
@@ -184,13 +207,17 @@ const mutations = {
     state.successMsg = null
   },
 
+  isSearching(state, payload){
+    state.isSearching = payload
+  }
 
 };
- export default {
+
+export default {
   namespaced: true,
   state,
   getters,
   actions,
   mutations
-}
 
+}

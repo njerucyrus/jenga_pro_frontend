@@ -19,7 +19,7 @@
                       <router-link :to="{name: 'Products'}">
                         <a class="btn btn-primary" style="color: white!important;">Order Construction Materials</a>
                       </router-link>
-                      <router-link :to="{name: 'Home'}">
+                      <router-link :to="{name: 'Professionals'}">
                         <a class="btn btn-success" style="color: white!important;">Find Professional</a>
                       </router-link>
                       <router-link :to="{name: 'Home'}">

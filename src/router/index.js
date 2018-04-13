@@ -11,6 +11,7 @@ import JengaProCheckoutPage from '@/components/CheckoutPage'
 import JengaProAbout from '@/components/About'
 import JengaProContact from '@/components/Contact'
 import JengaProLandingPage from '@/components/LandingPage'
+import JengaProProfessionals from '@/components/Professionals'
 
 Vue.use(Router)
 
@@ -83,6 +84,12 @@ export default new Router({
       path: '/contact',
       name: 'Contact',
       component: JengaProContact,
+
+    },
+    {
+      path: '/professionals',
+      name: 'Professionals',
+      component: JengaProProfessionals,
 
     },
 
