@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-bottom: 25px;">
+  <div style="margin-bottom: 35px;">
     <jenga-pro-login-header></jenga-pro-login-header>
     <div class="container-fluid">
       <div class="row">
