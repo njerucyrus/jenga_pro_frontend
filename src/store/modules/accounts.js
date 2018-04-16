@@ -1,13 +1,28 @@
 import api from '../api'
 
 const state = {
+  professionals: [],
   loading: false,
   error: null,
   successMsg: null,
 
+  /*pagination attr*/
+  pages: [],
+  count: 0,
+  currentPage: 1,
+  numPages: 0,
+  nextUrl: '',
+  prevUrl: '',
+  /*end of pagination attr*/
+
 };
 
 const getters = {
+
+  getAccounts(state){
+    return state.professionals
+  },
+
   /*pagination getters*/
   getPages(state) {
     return state.pages
@@ -22,7 +37,7 @@ const getters = {
   getPreviousUrl(state) {
     return state.prevUrl
   },
-  
+
   getNextUrl(state) {
     return state.nextUrl
   },
@@ -44,32 +59,87 @@ const getters = {
 
 const actions = {
 
+  fetchProfessionals({commit}) {
+    api.get(`/professionals/`)
+      .then(response => {
+        commit('setProfessionals', response.data)
+      })
+      .catch(error => {
+       console.log(error)
+      })
+  },
+
+
+  searchProfessionals({commit}, {query, category}){
+    commit('setLoading', true);
+    api.get(`/professionals/query/?q=${query}&category=${category}`)
+      .then(res => {
+        commit('setProfessionals', res.data);
+        commit('setLoading', false);
+
+      })
+      .catch(err => {
+        commit('setLoading', false);
+        console.log(err)
+      })
+  },
+
+  filterByCategory({commit}, {query, category}) {
+    commit('setLoading', true);
+
+
+    api.get(`/professionals/query/?q=${query}&category=${category}`)
+      .then(res => {
+        commit('setProfessionals', res.data);
+        commit('setLoading', false);
+
+      })
+      .catch(err => {
+        commit('setLoading', false);
+        console.log(err);
+      })
+  },
+
+  fetchPage({commit}, link){
+    commit('setLoading', true);
+    api.get(link)
+      .then(res => {
+        commit('setProfessionals', res.data);
+        commit('setLoading', false);
+
+      })
+      .catch(err => {
+        commit('setLoading', false);
+        console.log(err);
+      })
+  },
+
   createAccount({commit}, payload) {
-    console.log("account payload ",payload)
     commit('setLoading', true);
     commit('clearError');
     commit('clearSuccessMsg');
     api.post(`/users/`, payload)
       .then(response => {
         if (response.status === 201) {
-          commit('setLoading', false)
+          commit('setLoading', false);
           const message = "Account created Successfully. Redirecting to Login page...";
-          commit('setSuccessMsg', message)
-          console.log("res created " ,response )
+          commit('setSuccessMsg', message);
+          console.log("res created " ,response );
 
         } else {
 
           let message = "An error occurred while creating your account please try again later"
           commit('setError', message);
           commit('setLoading', false);
-          console.log("ACC_ERR0", response.data.username)
+
         }
       })
       .catch(error => {
         let message = "An error occurred while creating your account please try again later"
         commit('setError', message);
         commit('setLoading', false);
-        console.log("ACC_ERR1", error.message)
+        console.log(error);
+
       })
 
   },
@@ -78,6 +148,16 @@ const actions = {
 };
 
 const mutations = {
+
+  setProfessionals(state, payload){
+    state.professionals = payload.results;
+    state.nextUrl = payload.links.next;
+    state.prevUrl = payload.links.previous;
+    state.count = payload.count;
+    state.numPages = payload.pages;
+    state.currentPage = payload.current_page;
+  },
+
 
   setLoading(state, payload){
     state.loading = payload
@@ -97,6 +177,7 @@ const mutations = {
   clearSuccessMsg(state){
     state.successMsg = null
   },
+
 
 
 };
