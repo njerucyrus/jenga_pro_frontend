@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-md-10 col-md-push-2">
                       <router-link :to="{name: 'Products'}">
-                        <a class="btn btn-primary" style="color: white!important;">Order Construction Materials</a>
+                        <a v-on:click="reloadPage" class="btn btn-primary" style="color: white!important;">Order Construction Materials</a>
                       </router-link>
                       <router-link :to="{name: 'Professionals'}">
                         <a class="btn btn-success" style="color: white!important;">Find Professional</a>
@@ -47,6 +47,12 @@
       Slider,
       JengaProLoginHeader
     },
-    name: 'JengaProLandingPage'
-  }
+    name: 'JengaProLandingPage',
+    methods: {
+      reloadPage: function () {
+        window.location.reload()
+      },
+    }
+
+    }
 </script>

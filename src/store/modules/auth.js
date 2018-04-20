@@ -7,7 +7,7 @@ const state = {
   error: null,
   successMsg: null,
   currentUser: {},
-}
+};
 
 const getters = {
 

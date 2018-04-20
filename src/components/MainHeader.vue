@@ -23,9 +23,16 @@
                   </a></li>
                 <li @click="reloadPage">
                   <a href="#">
-                    <router-link to="/products">Shop</router-link>
+                    <router-link to="/professionals">Professionals</router-link>
                   </a>
                 </li>
+
+                <li v-if="isLoggedIn">
+                  <a>
+                    <router-link :to="{name: 'Contracts'}">My Contracts</router-link>
+                  </a>
+                </li>
+
                 <li>
                   <a>
                   <router-link :to="{name: 'About'}">About</router-link>
@@ -36,16 +43,27 @@
                     Services <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Find Professionals</a></li>
-                    <li><a href="#">Request Service</a></li>
-                    <li><a href="#">Get A Building Plan</a></li>
-                    <li><a href="#">Order Utility Services</a></li>
+                    <li><a href="#">Power Connection</a></li>
+                    <li><a href="#">Water Connection</a></li>
+                    <li><a href="#">Request Building Plan</a></li>
+                    <li><a href="#">Approval</a></li>
+                    <li><a href="#">Certification</a></li>
                   </ul>
                 </li>
                 <li><a href="">Blog</a></li>
                 <li>
                   <a>
                     <router-link :to="{name: 'Contact'}">Contact</router-link>
+                  </a>
+                </li>
+                <li v-if="isLoggedIn" v-on:click="logout">
+                  <a>
+                   Logout
+                  </a>
+                </li>
+                <li v-if="!isLoggedIn">
+                  <a>
+                    <router-link :to="{name: 'Login'}">Login</router-link>
                   </a>
                 </li>
               </ul>
@@ -74,12 +92,13 @@
               <div class="xt-select xt-search-opt">
                 <select class="xt-dropdown-search select-beast">
                   <option>All Categories</option>
-                  <option>Cement</option>
                   <option>Sand</option>
                   <option>Building Stones</option>
                   <option>Ballast</option>
                   <option>Tiles</option>
                   <option>Roofing Materials</option>
+                  <option>Metal</option>
+                  <option>Timber</option>
                 </select>
               </div>
               <div class="xt-search-opt xt-search-btn">

@@ -12,6 +12,8 @@ import JengaProAbout from '@/components/About'
 import JengaProContact from '@/components/Contact'
 import JengaProLandingPage from '@/components/LandingPage'
 import JengaProProfessionals from '@/components/Professionals'
+import JengaProContracts from '@/components/Contracts'
+import JengaProProfessionalSignUp from '@/components/ProfessionalSignUp'
 
 Vue.use(Router)
 
@@ -90,6 +92,19 @@ export default new Router({
       path: '/professionals',
       name: 'Professionals',
       component: JengaProProfessionals,
+
+    },
+    {
+      path: '/contracts',
+      name: 'Contracts',
+      component: JengaProContracts,
+
+    },
+
+    {
+      path: '/professionals/create-account',
+      name: 'ProfessionalSignUP',
+      component: JengaProProfessionalSignUp,
 
     },
 

@@ -6,7 +6,7 @@ const state = {
   error: null,
   successMsg: null
 
-}
+};
 //getters
 const getters = {
 
@@ -20,7 +20,7 @@ const actions = {
 };
 
 //mutations
-const mutations = {}
+const mutations = {};
 
 export default {
   namespaced: true,
@@ -28,4 +28,4 @@ export default {
   getters,
   actions,
   mutations
-}
+};

@@ -5,6 +5,7 @@ import products from './modules/products';
 import accounts from './modules/accounts';
 import auth from './modules/auth';
 import orders from './modules/orders';
+import contracts from './modules/contracts';
 
 
 import createPersistedState from 'vuex-persistedstate';
@@ -26,7 +27,8 @@ export const store = new Vuex.Store({
    products,
    accounts,
    auth,
-   orders
+   orders,
+   contracts,
  },
   strict: debug,
   plugins

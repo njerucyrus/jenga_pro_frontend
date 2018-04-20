@@ -21,6 +21,12 @@
                     <router-link to="/">Home</router-link>
                   </a></li>
                 <li @click="reloadPage">
+                <li v-if="loggedIn">
+                  <a>
+                    <router-link :to="{name: 'Contracts'}">My Contracts</router-link>
+                  </a>
+                </li>
+                <li v-on:click="reloadPage">
                   <a href="#">
                     <router-link to="/products">Shop</router-link>
                   </a>
@@ -30,24 +36,27 @@
                     <router-link :to="{name: 'About'}">About</router-link>
                   </a>
                 </li>
-                <li>
+                <li v-if="!loggedIn">
                   <a>
                     <router-link :to="{name: 'Login'}">Login</router-link>
                   </a>
                 </li>
-                <li>
+                <li v-if="!loggedIn">
 
                     <router-link :to="{name: 'Register'}">
                       <a> Sign Up</a>
                     </router-link>
 
                 </li>
-                <li>
 
-                    <router-link :to="{path:'/'}">
+                <li v-if="loggedIn" v-on:click="logout">
+                    <a> Logout</a>
+                </li>
+
+                <li v-if="!loggedIn">
+                    <router-link :to="{path:'/professionals/create-account'}">
                       <a class="btn btn-fill" style="padding: 2px;margin-bottom: 2px;"> Are you a professional?</a>
                     </router-link>
-
                 </li>
               </ul>
             </div>

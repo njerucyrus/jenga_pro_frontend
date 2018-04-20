@@ -10,9 +10,11 @@
                 <div class="col-md-3" style="margin: 2px;">
                   <select class="form-control" v-model="category">
                     <option>Select professional category</option>
-                    <option value="Foreman">Foremen</option>
-                    <option value="Architect">Architects</option>
-                    <option value="all">All</option>
+                      <option value="Foreman">Foremen</option>
+                      <option value="Architect">Architects</option>
+                      <option value="Interior Designer">Interior Designers</option>
+                      <option value="Electrician">Electricians</option>
+                      <option value="Plumber">Plumbers</option>
                   </select>
                 </div>
                 <div class="col-md-8" style="margin: 2px;">
@@ -94,6 +96,9 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
+
+
+
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
               aria-hidden="true">&times;</span>
@@ -101,10 +106,12 @@
             <h4 class="modal-title" id="exampleModalLabel">Work Description</h4>
           </div>
           <div class="modal-body">
+            <flash-message></flash-message>
+            <img src="/static/images/ajax-loading-gif-3.gif" v-if="loading" style="height: 48px; width: 48px; margin-left: 250px"/>
             <form>
               <div class="form-group">
                 <label for="job_desc" class="control-label">Short Description of task</label>
-                <textarea class="form-control" v-model="hireDesc" id="job_desc">
+                <textarea class="form-control" v-model="jobDesc" id="job_desc">
 
                   </textarea>
               </div>
@@ -112,7 +119,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" v-on:click="doHire">Submit</button>
+            <button type="button" class="btn btn-primary"  v-on:click="doHire">Submit</button>
           </div>
         </div>
       </div>
@@ -133,9 +140,10 @@
     data() {
       return {
         query: '',
-        category: 'all',
+        category: 'Foreman',
         userPayload: {},
-        hireDesc: ''
+        jobDesc: '',
+        isSearching: false,
       }
     },
 
@@ -148,10 +156,15 @@
           searchCount: 'getCount',
           next: 'getNextUrl',
           prev: 'getPreviousUrl',
+          success: "getSuccessMsg",
+          error: "getError",
         }
       ),
-
-
+      ...mapGetters('auth', {
+        currentUser: 'getCurrentUser',
+        auth_token: 'getAuthToken',
+      })
+      ,
 
     },
 
@@ -173,19 +186,25 @@
 
       },
       nextPage(link) {
-        alert(link);
         this.$store.dispatch('accounts/fetchPage', link)
       },
       previousPage(link) {
-        alert(link);
         this.$store.dispatch('accounts/fetchPage', link)
       },
       setProfDetails(payload){
-        console.log(payload);
-        this.userPayload = payload
+        this.userPayload = payload;
+        console.log("Other user payload", payload)
       },
 
       doHire(){
+        const payload = {
+          professional: this.userPayload.user.id,
+          employer: this.currentUser[0].user.id,
+          job_desc: this.jobDesc,
+          auth_token: this.auth_token
+        };
+
+       this.$store.dispatch("accounts/createHiringContract", payload)
 
       }
 
@@ -194,6 +213,31 @@
       category(newCategory) {
         if (newCategory) {
           this.$store.dispatch('accounts/filterByCategory', {query: this.query, category: newCategory})
+        }
+      },
+
+      success(newVal) {
+
+        if (newVal) {
+          this.flash(newVal, 'success', {
+            timeout: 1000,
+            important: true
+          });
+
+          const vm = this;
+          window.setTimeout(function () {
+            window.location.reload()
+          }, 3000)
+        }
+
+      },
+
+      error(newVal) {
+        if (newVal !== null) {
+          this.flash(newVal, 'error', {
+            timeout: 1000,
+          });
+
         }
       }
     },

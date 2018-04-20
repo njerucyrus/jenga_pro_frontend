@@ -4,17 +4,16 @@
       <a href="#">All Category</a>
       <ul class="xt-dropdown">
         <li>
-          <a class="xt-nav-link" href="#"><i class="ti-angle-double-right"></i>Cement</a>
-          <!--<ul class="mega-menu">-->
-            <!--<li>-->
-              <!--<ul class="xt-single-mega">-->
-                <!--<li><a href="#">Bags</a></li>-->
-                <!--<li><a href="#">Funky</a></li>-->
-                <!--<li><a href="#">Ear Wear</a></li>-->
-                <!--<li><a href="#">Shoes</a></li>-->
-                <!--<li><a href="#">Cosmetic</a></li>-->
-              <!--</ul>-->
-            <!--</li>-->
+          <a class="xt-nav-link" href="#"><i class="ti-angle-double-right"></i>Sand</a>
+          <ul class="mega-menu">
+            <li>
+              <ul class="xt-single-mega">
+                <li><a href="#">Red Sand</a></li>
+                <li><a href="#">Black Sand</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
             <!--<li>-->
               <!--<ul class="xt-single-mega">-->
                 <!--<li><a href="#">Shirt</a></li>-->
@@ -25,19 +24,16 @@
               <!--</ul>-->
             <!--</li>-->
           <!--</ul>-->
-        </li>
         <li>
-          <a class="xt-nav-link" href="#"><i class="ti-angle-double-right"></i>Sand</a>
-          <!--<ul class="mega-menu">-->
-            <!--<li>-->
-              <!--<ul class="xt-single-mega">-->
-                <!--<li><a href="#">Accessories</a></li>-->
-                <!--<li><a href="#">Ornaments</a></li>-->
-                <!--<li><a href="#">Shoes</a></li>-->
-                <!--<li><a href="#">3 Piece</a></li>-->
-                <!--<li><a href="#">Cosmetic</a></li>-->
-              <!--</ul>-->
-            <!--</li>-->
+          <a class="xt-nav-link" href="#"><i class="ti-angle-double-right"></i>Stones</a>
+          <ul class="mega-menu">
+            <li>
+              <ul class="xt-single-mega">
+                <li><a href="#">Machine Cut Stones</a></li>
+                <li><a href="#">Quarry Stones</a></li>
+              </ul>
+            </li>
+          </ul>
             <!--<li>-->
               <!--<ul class="xt-single-mega">-->
                 <!--<li><a href="#">Ring</a></li>-->
@@ -64,7 +60,7 @@
             <!--</li>-->
           <!--</ul>-->
         <!--</li>-->
-        <li><a href="#"><i class="ti-angle-double-right"></i> Building Stones</a></li>
+        <li><a href="#"><i class="ti-angle-double-right"></i> Timber</a></li>
         <!--<li>-->
           <!--<a class="xt-nav-link" href="#"><i class="fa flaticon-cosmetics"></i> COSMETICS</a>-->
           <!--<ul class="mega-menu xt-column">-->
@@ -79,7 +75,7 @@
           <!--</ul>-->
         <!--</li>-->
         <li>
-          <a class="xt-nav-link" href="#"><i class="ti-angle-double-right"></i>Handicles</a>
+          <a class="xt-nav-link" href="#"><i class="ti-angle-double-right"></i>Metal</a>
           <!--<ul class="mega-menu xt-column">-->
             <!--<li>-->
               <!--<ul class="xt-single-mega">-->
@@ -92,7 +88,7 @@
           <!--</ul>-->
         </li>
         <li>
-          <a class="xt-nav-link" href="#"><i class="ti-angle-double-right"></i>Fired Bricks</a>
+          <a class="xt-nav-link" href="#"><i class="ti-angle-double-right"></i>Roofing Sheets</a>
           <!--<ul class="mega-menu xt-column">-->
             <!--<li>-->
               <!--<ul class="xt-single-mega">-->
@@ -104,8 +100,7 @@
             <!--</li>-->
           <!--</ul>-->
         </li>
-        <li><a href="#"><i class="ti-angle-double-right"></i>Celamic Tiles</a></li>
-        <li><a href="#more-list"> <i class="ti-angle-double-right"></i> Roofing Materials</a></li>
+        <li><a href="#"><i class="ti-angle-double-right"></i>Mazaras</a></li>
       </ul>
     </li>
   </ul>

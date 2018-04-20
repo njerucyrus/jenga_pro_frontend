@@ -2,10 +2,10 @@ import api from '../api'
 
 const state = {
   professionals: [],
+  users: [],
   loading: false,
   error: null,
   successMsg: null,
-
   /*pagination attr*/
   pages: [],
   count: 0,
@@ -18,7 +18,9 @@ const state = {
 };
 
 const getters = {
-
+  getUsers(state){
+    return state.users;
+  },
   getAccounts(state){
     return state.professionals
   },
@@ -58,6 +60,17 @@ const getters = {
 };
 
 const actions = {
+
+  fetchUsers({commit}){
+    api.get(`/users/`)
+      .then(response => {
+        commit('setUsers', response.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  },
+
 
   fetchProfessionals({commit}) {
     api.get(`/professionals/`)
@@ -135,7 +148,7 @@ const actions = {
         }
       })
       .catch(error => {
-        let message = "An error occurred while creating your account please try again later"
+        let message = "An error occurred while creating your account please try again later";
         commit('setError', message);
         commit('setLoading', false);
         console.log(error);
@@ -144,10 +157,39 @@ const actions = {
 
   },
 
+  createHiringContract({commit}, payload){
+
+    commit('setLoading', true);
+    commit('clearError');
+    commit('clearSuccessMsg');
+
+    api.post(`professionals/hires/`, payload, {headers: {
+      'Authorization': `Bearer ${payload.auth_token}`,
+    }})
+      .then(res => {
+        commit('setLoading', false);
+        let message = "Contract created Successfully";
+        commit('setSuccessMsg', message);
+        console.log("res created " ,res );
+      })
+      .catch(err => {
+        let message = "An error occurred while submitting  your request please try again later";
+        commit('setError', message);
+        commit('setLoading', false);
+        console.log(err.message)
+      })
+
+
+  },
+
 
 };
 
 const mutations = {
+
+  setUsers(state, payload){
+    state.users = payload;
+  },
 
   setProfessionals(state, payload){
     state.professionals = payload.results;

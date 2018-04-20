@@ -13,12 +13,13 @@
                 <div class="form-group col-md-4 col-sm-4 col-xs-12">
                   <div class="xt-select xt-search-opt xt-item-view-count">
                     <select class="xt-category-search select-beast">
-                      <option>Cement</option>
                       <option>Sand</option>
                       <option>Building Stones</option>
                       <option>Ballast</option>
                       <option>Tiles</option>
                       <option>Roofing Materials</option>
+                      <option>Metal</option>
+                      <option>Timber</option>
 
                     </select>
                   </div>

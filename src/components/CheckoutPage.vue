@@ -136,11 +136,6 @@
                       </div>
                     </div>
                     <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
-                          <a style="font-size: 32px;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><i class="fa fa-money"></i> Cash On Delivery</a>
-                        </h4>
-                      </div>
                       <div id="collapseThree" class="panel-collapse collapse">
                         <div class="panel-body">
                           <p class="list-group-item list-group-item-info">Click complete checkout</p>
